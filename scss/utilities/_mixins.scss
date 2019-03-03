@@ -34,6 +34,26 @@
 }
 
 // Grids
+@mixin grid(
+	$disp: grid,
+	$gtc: null,
+	$gtr: null,
+	$gar: auto,
+	$algnI: stretch,
+	$justI: center,
+	$hgt: 100vh,
+	$gap: null
+) {
+	display: $disp;
+	grid-template-columns: $gtc;
+	grid-template-rows: $gtr;
+	grid-auto-rows: $gar;
+	align-items: $algnI;
+	justify-items: $justI;
+	height: $hgt;
+	grid-gap: $gap;
+}
+
 
 // Flexboxes
 @mixin flex(

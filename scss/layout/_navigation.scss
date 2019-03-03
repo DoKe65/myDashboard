@@ -1,0 +1,33 @@
+// Navigation
+
+nav {
+  width: 100%;
+  @include mq(large) {
+    height: 100vh;
+    background-color: $color-secundary;
+    grid-row: 2 / 3;
+  }
+}
+
+nav ul {
+  @include flex($just: space-around);
+  color: $white;
+  background-color: $color-secundary;
+  padding: $indent;
+
+  @include mq(large) {
+    flex-direction: column;
+
+  }
+}
+
+li {
+  @include flex();
+  height: auto;
+  margin: $indent;
+}
+
+.nav__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}

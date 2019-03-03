@@ -52,25 +52,32 @@
         </ul>
       </nav>
 
-      <main class="grid__content">
+      <main id="dashboard" class="grid__content">
         <div class="spanTwo panel">
-          <h2 class="panel__title">Dashboard</h2>
-          <input class="panel__search" type="text" name="searchbar" placeholder="Search">
+          <div  class="panel__title">
+            <h2>Dashboard</h2>
+          </div>
+          <div class="panel__search">
+            <input class="panel__search--input" type="text" name="searchbar" id="search" placeholder="Search">
+          </div>
         </div>
         <div class="spanTwo main__alert">Alert</div>
-        <div class="spanTwo main__chart--traffic">Main Chart Hero</div>
+        <div id="charts" class="spanTwo main__chart--traffic">
+          <canvas id="traffic"></canvas>
+        </div>
         <div class="spanOne main__chart--daily">Main Chart Daily Traffic</div>
         <div class="spanOne main__chart--mobile">Main Chart Mobile Users</div>
         <div class="spanTwo main__social">Social Stats</div>
-        <div class="spanOne main__members--new">New Members</div>
+        <div id="members" class="spanOne main__members--new">New Members</div>
         <div class="spanOne main__members--recent">Recent Activity</div>
         <div class="spanOne main__form">Message User</div>
-        <div class="spanOne main__settings">Settings</div>
+        <div id="settings" class="spanOne main__settings">Settings</div>
       </main>
 
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
     <script src="js/app.js"></script>
 
   </body>

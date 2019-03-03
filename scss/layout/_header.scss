@@ -1,0 +1,93 @@
+// ==================
+// Header
+// ==================
+
+
+header {
+  @include flex($dir: column);
+  color: $white;
+  background-color: $color-primary;
+  padding-bottom: $indent;
+  width: 100%;
+  @include mq(medium) {
+    @include flex($dir: row, $just: space-between, $algnC: center);
+    padding-bottom: 0;
+  }
+  @include mq(large) {
+    grid-column: 1 / -1;
+  }
+}
+
+
+// Title and Logo
+
+h1 {
+  font-size: 1.8em;
+  text-align: center;
+  letter-spacing: 0.05em;
+  @include mq(medium) {
+    width: auto;
+    margin-left: $col-height;
+  }
+}
+
+.logoLight,
+.logoTm {
+  font-weight: 300;
+}
+
+.logoTm {
+  font-size: 0.4em;
+  vertical-align: top;
+}
+
+// User and Message-Alert
+
+.header__right {
+  @include flex($dir: row, $just: space-between, $algnI: center);
+  max-width: 80vw;
+  height: $col-height-lg;
+  // padding: 0 $indent;
+  margin: auto;
+
+  @include mq(medium) {
+    margin: auto $col-height;
+  }
+  //
+  // @include mq(large) {
+  //
+  //   width: auto;
+  // }
+}
+
+.header__bell {
+  @include flex($just: flex-end, $algnI: center);
+  width: 33%;
+  height: $col-height-lg;
+  padding-right: $indent-lg;
+  border-right: $br--blue;
+}
+
+#icon-bell {
+  width: $col-height;
+  height: $col-height;
+}
+
+.header__user {
+  @include flex($algnI: center, $just: flex-end);
+  width: 100%;
+  padding-left: $indent-lg;
+}
+
+.header__user img {
+  width: $col-height;
+  height: $col-height;
+  border-radius: $br--round;
+  margin-right: $indent;
+
+}
+
+.user-name {
+  font-weight: $font-weight--light;
+
+}

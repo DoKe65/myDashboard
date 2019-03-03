@@ -1,0 +1,86 @@
+// ==================
+// Main Elements
+// ==================
+
+// Main elements
+
+.spanTwo {
+  @include mq(large) {
+    grid-column: 1 / -1;
+  }
+}
+
+// Title Bar
+
+.panel {
+  text-align: center;
+  background-color: palette(color-primary, xx-light);
+  width: 100%;
+  @include mq(medium) {
+    @include flex($dir: row, $just: space-between);
+    height: $col-height-lg * 1.3;
+    justify-self: stretch;
+  }
+}
+
+.panel__title {
+  font-size: $indent-lg;
+  align-items: center;
+  @include mq(medium) {
+    padding: 0 $col-height;
+    background-color: white;
+    border-right: $br--grey;
+    & h2 {
+      margin: auto;
+      margin-top: $indent;
+    }
+  }
+}
+
+.panel__search {
+  width: 100%;
+
+  & .panel__search--input {
+    height: $col-height;
+    width: 80%;
+    border-radius: $br--default;
+    @include mq(medium) {
+      width: 60%;
+      max-width: 100%;
+      margin-top: $indent * 1.7;
+      float: right;
+      margin-right: $col-height;
+      background-image: url("../images/lupe.png");
+      background-size: 25px;
+      background-position: right;
+      background-repeat: no-repeat;
+    }
+    @include mq(large) {
+      max-width: 40%;
+    }
+  }
+  @include mq(medium) {
+    border-bottom: $br--grey;
+  }
+
+}
+
+.main__alert {
+  width: 80%;
+  background-color: $color-primary;
+  border-radius: $br--default;
+  padding: $indent / 2;
+  margin: auto;
+  color: $white;
+
+  @include mq(medium) {
+    margin-top: 0;
+    width: 91%;
+  }
+
+  @include mq(large) {
+    max-width: 100%;
+    width: 93%;
+    // margin: 0 $col-height;
+  }
+}

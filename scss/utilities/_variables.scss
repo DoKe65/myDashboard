@@ -43,6 +43,12 @@ $color-palettes: (
     light    : lighten($black, 10%),
     base     : $black,
     dark     : darken($black, 10%)
+  ),
+  color-primary  : (
+    xx-light  : lighten($color-primary, 35%),
+    x-light  : lighten($color-primary, 25%),
+    base     : $color-primary,
+    dark     : darken($color-primary, 20%)
   )
 );
 
@@ -66,6 +72,11 @@ $letter-space   : 1px;
 $br--default: 5px;
 $br--round   : 50%;
 
+// Borders
+
+$br--grey: 1px solid lighten($grey, 12%);
+$br--blue: 1px solid $color-secundary;
+
 // Transitions
 
 $trns-duration: .5s;
@@ -86,4 +97,6 @@ $brkpoint-lg: 1024px;
 
 // sizes and positions
 $col-height: 2.4rem;
+$col-height-lg: $col-height * 1.5;
 $indent: 0.7rem;
+$indent-lg: $indent * 2;
