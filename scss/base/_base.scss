@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: palette(black);
+  font-size: $base__font-size;
+  font-family: $font-family;
+  line-height: ($base__line/$base__font-size);
+  background-color: red;
+}

@@ -1,0 +1,52 @@
+// ======================================
+//  Mixins
+// ======================================
+
+// Media Queries
+
+@mixin mq($break) {
+	@if $break == "small" {
+		@media (min-width: $brkpoint-sm) and (max-width: $brkpoint-md) {
+			@content;
+		}
+	}
+	@else if $break == "medium" {
+		@media (min-width: $brkpoint-md) {
+			@content;
+		}
+	}
+	@else if $break == "large" {
+		@media (min-width: $brkpoint-lg) {
+			@content;
+		}
+	}
+	@else {
+		@error "Sorry! `#{$break}` is an ivalid value."
+	}
+}
+
+// Fonts
+@mixin font($fontstyle, $color: $grey, $size: $base__font-size) {
+  font-family: $font-family--primary;
+  font-weight: map-get($fontweight, $fontstyle);
+  color: $color;
+  font-size: $size;
+}
+
+// Grids
+
+// Flexboxes
+@mixin flex(
+  $disp: flex,
+  $dir: row,
+  $wrap: nowrap,
+  $just: null,
+  $algnI: null,
+	$algnC: null) {
+  display: $disp;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $just;
+  align-items: $algnI;
+	align-content: $algnC;
+}

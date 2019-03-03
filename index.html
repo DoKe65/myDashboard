@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DoKels Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Krub:300,400,700" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="grid__main">
+      <header id="home">
+        <!-- Header & User -->
+        <h1>Your<span class="logoLight">App</span><span class="logoTm">TM</span></h1>
+        <div class="header__right">
+          <div class="header__bell">
+            <svg id="icon-bell">
+              <use xlink:href="sprite/sprite.svg#icon-bell" />
+            </svg>
+          </div>
+          <div class="header__user">
+            <img src="https://github.com/DoKe65.png">
+            <div class="user-name">Doris Keller</div>
+          </div>
+        </div>
+      </header>
+
+      <nav>
+
+        <ul>
+          <li><a href="#dashboard">
+            <svg id="icon-dashboard" class="nav__icon">
+              <use xlink:href="sprite/sprite.svg#icon-dashboard" />
+            </svg>
+          </a></li>
+          <li><a href="#charts">
+            <svg id="icon-visits" class="nav__icon">
+              <use xlink:href="sprite/sprite.svg#icon-visits" />
+            </svg>
+          </a></li>
+          <li><a href="#members">
+            <svg id="icon-members" class="nav__icon">
+              <use xlink:href="sprite/sprite.svg#icon-members" />
+            </svg>
+          </a></li>
+          <li><a href="#settings">
+            <svg id="icon-settings" class="nav__icon">
+              <use xlink:href="sprite/sprite.svg#icon-settings" />
+            </svg>
+          </a></li>
+        </ul>
+      </nav>
+
+      <main class="grid__content">
+        <div class="spanTwo panel">
+          <h2 class="panel__title">Dashboard</h2>
+          <input class="panel__search" type="text" name="searchbar" placeholder="Search">
+        </div>
+        <div class="spanTwo main__alert">Alert</div>
+        <div class="spanTwo main__chart--traffic">Main Chart Hero</div>
+        <div class="spanOne main__chart--daily">Main Chart Daily Traffic</div>
+        <div class="spanOne main__chart--mobile">Main Chart Mobile Users</div>
+        <div class="spanTwo main__social">Social Stats</div>
+        <div class="spanOne main__members--new">New Members</div>
+        <div class="spanOne main__members--recent">Recent Activity</div>
+        <div class="spanOne main__form">Message User</div>
+        <div class="spanOne main__settings">Settings</div>
+      </main>
+
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
