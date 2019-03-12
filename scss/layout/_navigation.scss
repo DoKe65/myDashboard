@@ -1,19 +1,20 @@
 // Navigation
 
-nav {
+#navigationbar {
   width: 100%;
   @include mq(large) {
-    height: 100vh;
+    // height: 100vh;
     background-color: $color-secundary;
-    grid-row: 2 / 3;
+    grid-row: 2 / -1;
+    margin-left: 0;
   }
 }
 
-nav ul {
+#navigationbar ul {
   @include flex($just: space-around);
   color: $white;
   background-color: $color-secundary;
-  padding: $indent;
+  // padding: $indent;
 
   @include mq(large) {
     flex-direction: column;
@@ -21,13 +22,36 @@ nav ul {
   }
 }
 
-li {
+#navigationbar li {
   @include flex();
   height: auto;
-  margin: $indent;
+  margin: $indent auto 0;
+  padding: $indent;
+  border: 4px solid transparent;
+  @include mq(large) {
+    margin: $indent auto;
+    width: 100%;
+    padding: 0.5rem $indent 0;
+
+  }
+  & .nav__icon:hover {
+    opacity: 1;
+  }
+  &.active {
+      border-bottom: $br--green;
+      & .nav__icon {
+        opacity: 1;
+      }
+    @include mq(large) {
+      border-left: $br--green;
+      border-bottom-color: transparent;
+    }
+  }
 }
 
 .nav__icon {
   width: 2.5rem;
   height: 2.5rem;
+  margin: auto;
+  opacity: 0.5;
 }

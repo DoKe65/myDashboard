@@ -316,11 +316,9 @@ body {
   color: #242121;
   font-size: 16px;
   font-family: "Krub", Arial, sans-serif;
-  line-height: 1.5;
-  background-color: #eeeff7; }
+  line-height: 1.5; }
 
 .grid__main {
-  max-width: 1300px;
   margin: auto;
   background-color: #fff;
   display: grid;
@@ -330,8 +328,9 @@ body {
   height: 100vh; }
   @media (min-width: 1024px) {
     .grid__main {
-      grid-template-rows: auto auto;
-      grid-template-columns: auto minmax(0, 1fr); } }
+      grid-template-rows: auto 100rem;
+      grid-template-columns: auto minmax(0, 1fr);
+      height: 100%; } }
 
 .grid__content {
   display: grid;
@@ -339,7 +338,8 @@ body {
   align-items: stretch;
   justify-items: center;
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  grid: subgrid; }
   @media (min-width: 768px) {
     .grid__content {
       grid-auto-rows: max-content;
@@ -348,7 +348,9 @@ body {
     .grid__content {
       grid-column: 2 / -1;
       grid-template-columns: 1fr 1fr;
-      width: 100%; } }
+      width: 100%;
+      grid-auto-rows: auto;
+      background-color: #fff; } }
 
 header {
   display: flex;
@@ -411,9 +413,22 @@ h1 {
   padding-right: 1.4rem;
   border-right: 1px solid #4D4C72; }
 
+@keyframes turn {
+  50% {
+    transform: rotate(-25deg); }
+  100% {
+    transform: rotate(25deg); } }
 #icon-bell {
   width: 2.4rem;
-  height: 2.4rem; }
+  height: 2.4rem;
+  padding: .2rem 0;
+  fill: #fff; }
+  #icon-bell:hover {
+    fill: #f9ef16;
+    animation: turn 0.3s infinite; }
+
+svg path {
+  fill: inherit; }
 
 .header__user {
   display: flex;
@@ -502,38 +517,110 @@ h1 {
       max-width: 100%;
       width: 93%; } }
 
-nav {
+#navigationbar {
   width: 100%; }
   @media (min-width: 1024px) {
-    nav {
-      height: 100vh;
+    #navigationbar {
       background-color: #4D4C72;
-      grid-row: 2 / 3; } }
+      grid-row: 2 / -1;
+      margin-left: 0; } }
 
-nav ul {
+#navigationbar ul {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
   color: #fff;
-  background-color: #4D4C72;
-  padding: 0.7rem; }
+  background-color: #4D4C72; }
   @media (min-width: 1024px) {
-    nav ul {
+    #navigationbar ul {
       flex-direction: column; } }
 
-li {
+#navigationbar li {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   height: auto;
-  margin: 0.7rem; }
+  margin: 0.7rem auto 0;
+  padding: 0.7rem;
+  border: 4px solid transparent; }
+  @media (min-width: 1024px) {
+    #navigationbar li {
+      margin: 0.7rem auto;
+      width: 100%;
+      padding: 0.5rem 0.7rem 0; } }
+  #navigationbar li .nav__icon:hover {
+    opacity: 1; }
+  #navigationbar li.active {
+    border-bottom: 4px solid #8dd490; }
+    #navigationbar li.active .nav__icon {
+      opacity: 1; }
+    @media (min-width: 1024px) {
+      #navigationbar li.active {
+        border-left: 4px solid #8dd490;
+        border-bottom-color: transparent; } }
 
 .nav__icon {
   width: 2.5rem;
-  height: 2.5rem; }
+  height: 2.5rem;
+  margin: auto;
+  opacity: 0.5; }
 
 .main__chart--traffic {
-  width: 80vw; }
+  width: 90vw; }
+  @media (min-width: 768px) {
+    .main__chart--traffic {
+      background-color: #fff; } }
+  @media (min-width: 1024px) {
+    .main__chart--traffic {
+      width: 80vw; } }
+
+.traffic__titlebar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center; }
+  @media (min-width: 768px) {
+    .traffic__titlebar {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between; } }
+  .traffic__titlebar--title {
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 0; }
+    @media (min-width: 768px) {
+      .traffic__titlebar--title {
+        margin: auto 0; } }
+  .traffic__titlebar--nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 0.7rem;
+    background-color: #fff;
+    color: #242121; }
+    .traffic__titlebar--nav ul li {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      height: auto;
+      margin: 0.7rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 20px; }
+      .traffic__titlebar--nav ul li a {
+        text-decoration: none; }
+      .traffic__titlebar--nav ul li.active {
+        background-color: #8dd490; }
+        .traffic__titlebar--nav ul li.active a {
+          color: #fff; }
+
+.traffic__container {
+  height: auto;
+  position: relative; }
+  @media (min-width: 768px) {
+    .traffic__container {
+      height: 30vh; } }
 
 /*# sourceMappingURL=styles.css.map */

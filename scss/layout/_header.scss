@@ -53,11 +53,6 @@ h1 {
   @include mq(medium) {
     margin: auto $col-height;
   }
-  //
-  // @include mq(large) {
-  //
-  //   width: auto;
-  // }
 }
 
 .header__bell {
@@ -68,11 +63,33 @@ h1 {
   border-right: $br--blue;
 }
 
+// Bell animation
+@keyframes turn {
+  50% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+// Bell svg
 #icon-bell {
   width: $col-height;
   height: $col-height;
+  padding: .2rem 0;
+  fill: $white;
+  &:hover {
+    fill: #f9ef16;
+    animation: turn 0.3s infinite;
+  }
 }
 
+svg path {
+  fill: inherit;
+}
+
+// User
 .header__user {
   @include flex($algnI: center, $just: flex-end);
   width: 100%;
@@ -84,10 +101,8 @@ h1 {
   height: $col-height;
   border-radius: $br--round;
   margin-right: $indent;
-
 }
 
 .user-name {
   font-weight: $font-weight--light;
-
 }

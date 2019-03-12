@@ -2,6 +2,84 @@
 // Charts
 //=====================
 
+
 .main__chart--traffic {
-  width: 80vw;
+  width: 90vw;
+  @include mq(medium) {
+    // height: 70vh;
+    background-color: $white;
+  }
+  @include mq(large) {
+    width: 80vw;
+    // height: 30vh;
+  }
+  // max-height: 100%;
+
 }
+
+.traffic__titlebar {
+  @include flex($dir: column, $algnI: center);
+  @include mq(medium) {
+    @include flex($dir: row, $just: space-between);
+}
+
+  &--title {
+    text-transform: uppercase;
+    font-size: $base__font-size;
+    margin-bottom: 0;
+    @include mq(medium) {
+      margin: auto 0;
+    }
+  }
+
+  &--nav {
+
+
+    & ul {
+      @include flex($dir: row, $just: space-around);
+      // color: $white;
+      // background-color: $color-secundary;
+      padding: $indent;
+      background-color: $white;
+      color: $black;
+
+      & li {
+        @include flex();
+        height: auto;
+        margin: $indent;
+        padding: $indent / 2 $indent;
+        border-radius: 20px;
+        & a {
+          text-decoration: none;
+        }
+        &.active {
+          background-color: $feijoa;
+          & a {
+            color: $white;
+          }
+
+        }
+      }
+    }
+
+
+  }
+}
+
+.traffic__container {
+  height: auto;
+  position: relative;
+
+  @include mq(medium) {
+    height: 30vh;
+  }
+
+  // @include mq(large) {
+  //   height: 30vh;
+  // }
+
+}
+
+// #traffic {
+//   height: 200px;
+// }
