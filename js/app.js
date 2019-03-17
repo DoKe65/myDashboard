@@ -71,15 +71,17 @@ const badge = document.querySelector(".header__bell--badge");
 //   }
 // });
 
-header.addEventListener('click', () => {
-  badge.setAttribute("style", "visibility: hidden;");
-  if (notesDiv.style.display === "none") {
+header.addEventListener('click', (e) => {
+  if (e.target.tagName === "svg") {
+    badge.setAttribute("style", "visibility: hidden;");
+    if (notesDiv.style.display === "none") {
 
-    notesDiv.setAttribute("style", "display: block;");
-  } else {
+      notesDiv.setAttribute("style", "display: block;");
+    } else {
 
-    notesDiv.setAttribute("style", "display: none;");
-  }
+      notesDiv.setAttribute("style", "display: none;");
+    }
+}
 });
 
 
