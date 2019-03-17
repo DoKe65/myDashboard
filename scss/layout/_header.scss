@@ -80,13 +80,63 @@ h1 {
   padding: .2rem 0;
   fill: $white;
   &:hover {
-    fill: #f9ef16;
+    fill: $feijoa;
     animation: turn 0.3s infinite;
   }
 }
 
 svg path {
   fill: inherit;
+}
+.header__bell {
+  text-decoration: none;
+}
+.header__bell--badge {
+  font-size: 0.7em;
+  position: fixed;
+  padding: 2px 7px;
+  top: $indent-lg;
+  border-radius: $br--round;
+  background: $feijoa;
+  color: white;
+  z-index: 1;
+  visibility: visible;
+}
+
+.notes {
+  display: none;
+  position: absolute;
+  top: $col-height-lg;
+  right: $col-height-lg * 3;
+  font-size: $indent;
+  background-color: palette(color-primary, xx-light);
+  border: $br--green;
+  border-radius: $br--default;
+  padding: $indent;
+  color: $grey;
+  max-width: 16rem;
+
+  // &.hidden {
+  //   visibility: hidden;
+  // }
+
+  & li {
+    border-top: $br--green-fine;
+    // border-bottom: $br--green-fine;
+    padding: $indent;
+
+    &:last-child {
+      border-bottom: $br--green-fine;
+    }
+    & .close {
+      position: absolute;
+      right: 3px;
+      margin: auto;
+      background-color: transparent;
+      border-color: transparent;
+      color: $feijoa;
+    }
+  }
 }
 
 // User

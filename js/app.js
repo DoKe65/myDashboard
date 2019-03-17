@@ -1,9 +1,107 @@
+//===========================================
+// Closing Elements
+//===========================================
+
+function closeButton(element) {
+  element.addEventListener('click', (e) => {
+    if (e.target.tagName === "BUTTON") {
+      const parent = e.target.parentNode;
+      const gdParent = parent.parentNode;
+      gdParent.removeChild(parent);
+    }
+    let noteButton = notesDiv.getElementsByTagName("BUTTON");
+    if (noteButton.length === 0) {
+      notesDiv.setAttribute("style", "display: none;");
+    }
+  });
+}
+
+//===========================================
+// Notification
+//===========================================
+
+// Notifications
+
+let notifications = [
+  "Hey there! Don't forget the get-together this evening after work!",
+  "Important meeting for the production staff at 2:30 pm on Friday - please be at time!",
+  "Time to have a chat this afternoon? See you in the cafeteria, Berry"
+]
+
+const header = document.querySelector(".header__right");
+const notesDiv = document.createElement("div");
+notesDiv.classList.add("notes");
+header.appendChild(notesDiv);
+
+const notesUl = document.createElement("ul");
+notesDiv.appendChild(notesUl);
+
+function noteList() {
+  for (let i = 0; i < notifications.length; i++) {
+    let noteLi = document.createElement("li");
+    let note = notifications[i];
+    noteLi.textContent = note;
+    notesUl.appendChild(noteLi);
+    let close = document.createElement("button");
+    close.classList.add("close");
+    close.textContent = "x";
+    noteLi.appendChild(close);
+  }
+  closeButton(notesDiv);
+  // let closeAll = document.createElement("li");
+  // closeAll.textContent = "Close all notifications";
+  // notesDiv.appendChild(closeAll);
+  // let close = document.createElement("button");
+  // close.classList.add("close");
+  // close.textContent = "x";
+  // closeAll.appendChild(close);
+}
+
+noteList();
+
+
+// Show Notifications and hide Notificaton Badge
+
+const badge = document.querySelector(".header__bell--badge");
+
+// header.addEventListener('click', (e) => {
+//   if (e.target.tagName === "svg") {
+//     badge.setAttribute("style", "visibility: hidden;");
+//     notesDiv.setAttribute("style", "display: block;");
+//   }
+// });
+
+header.addEventListener('click', () => {
+  badge.setAttribute("style", "visibility: hidden;");
+  if (notesDiv.style.display === "none") {
+
+    notesDiv.setAttribute("style", "display: block;");
+  } else {
+
+    notesDiv.setAttribute("style", "display: none;");
+  }
+});
+
+
+
+
+//===========================================
+// Alert
+//===========================================
+
+// Close the alert bar
+
+const closeAlert = document.querySelector(".main__alert");
+closeButton(closeAlert);
+
+//===========================================
+// Behavior of chart navigation
+//===========================================
 // set Navigation Items to active when clicked
 const mainNavigation = document.getElementById("navigationbar");
 const trafficNavigation = document.getElementById("trafficNavigation");
 
 function setToActive(nav) {
-  // const navigation = document.getElementById(nav);
   const navItems = nav.getElementsByTagName("li");
   for (let i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener("click", function() {
@@ -19,7 +117,10 @@ function setToActive(nav) {
 setToActive(mainNavigation);
 setToActive(trafficNavigation);
 
+
+//============================
 // Charts
+//============================
 
 let ctx = document.getElementById("traffic").getContext('2d');
 

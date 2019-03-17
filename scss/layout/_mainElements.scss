@@ -62,7 +62,6 @@
   @include mq(medium) {
     border-bottom: $br--grey;
   }
-
 }
 
 .main__alert {
@@ -72,6 +71,7 @@
   padding: $indent / 2;
   margin: auto;
   color: $white;
+  @include flex($dir: row, $just: space-between);
 
   @include mq(medium) {
     margin-top: 0;
@@ -82,5 +82,11 @@
     max-width: 100%;
     width: 93%;
     // margin: 0 $col-height;
+  }
+
+  & .close {
+    background-color: transparent;
+    border-color: transparent;
+    color: $white;
   }
 }
