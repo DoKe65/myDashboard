@@ -93,7 +93,7 @@ svg path {
 }
 .header__bell--badge {
   font-size: 0.7em;
-  position: fixed;
+  position: absolute;
   padding: 2px 7px;
   top: $indent-lg;
   border-radius: $br--round;
@@ -104,7 +104,7 @@ svg path {
 }
 
 .notes {
-  display: none;
+  // display: none;
   position: absolute;
   top: $col-height-lg;
   right: $col-height-lg * 3;

@@ -318,6 +318,9 @@ body {
   font-family: "Krub", Arial, sans-serif;
   line-height: 1.5; }
 
+a:active {
+  color: #242121; }
+
 .grid__main {
   margin: auto;
   background-color: #fff;
@@ -435,7 +438,7 @@ svg path {
 
 .header__bell--badge {
   font-size: 0.7em;
-  position: fixed;
+  position: absolute;
   padding: 2px 7px;
   top: 1.4rem;
   border-radius: 50%;
@@ -445,7 +448,6 @@ svg path {
   visibility: visible; }
 
 .notes {
-  display: none;
   position: absolute;
   top: 3.6rem;
   right: 10.8rem;

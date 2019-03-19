@@ -35,7 +35,7 @@
       <nav id="navigationbar">
 
         <ul>
-          <li class="active"><a href="#dashboard">
+          <li class="active"><a href="#">
             <img id="icon-dashboard" class="nav__icon" src="icons/icon-dashboard.svg">
           </a></li>
           <li><a href="#charts">
@@ -65,10 +65,10 @@
             <h2 class="traffic__titlebar--title">Traffic</h2>
             <nav id="trafficNavigation" class="traffic__titlebar--nav">
               <ul>
-                <li><a href="#">Hourly</a></li>
-                <li><a href="#">Daily</a></li>
-                <li class="active"><a href="#">Weekly</a></li>
-                <li><a href="#">Monthly</a></li>
+                <li id="hourly"><a href="#">Hourly</a></li>
+                <li id="daily"><a href="#">Daily</a></li>
+                <li id="weekly" class="active"><a href="#">Weekly</a></li>
+                <li id="monthly"><a href="#">Monthly</a></li>
               </ul>
             </nav>
           </div>
@@ -76,8 +76,12 @@
             <canvas id="traffic"></canvas>
           </div>
         </div>
-        <div class="spanOne main__chart--daily">Main Chart Daily Traffic</div>
-        <div class="spanOne main__chart--mobile">Main Chart Mobile Users</div>
+        <div class="spanOne main__chart--daily">
+          <canvas id="dailyTraffic"></canvas>
+        </div>
+        <div class="spanOne main__chart--mobile">
+          <canvas id="mobileUsers"></canvas>
+        </div>
         <div class="spanTwo main__social">Social Stats</div>
         <div id="members" class="spanOne main__members--new">New Members</div>
         <div class="spanOne main__members--recent">Recent Activity</div>
