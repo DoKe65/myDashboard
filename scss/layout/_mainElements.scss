@@ -5,7 +5,7 @@
 // Main elements
 
 .spanTwo {
-  @include mq(large) {
+  @include mq(medium) {
     grid-column: 1 / -1;
   }
 }

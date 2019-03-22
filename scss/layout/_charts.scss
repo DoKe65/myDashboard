@@ -25,10 +25,12 @@
 
   &--title {
     text-transform: uppercase;
+    text-align: center;
     font-size: $base__font-size;
     margin-bottom: 0;
     @include mq(medium) {
       margin: auto 0;
+      text-align: left;
     }
   }
 
@@ -46,7 +48,7 @@
       & li {
         @include flex();
         height: auto;
-        margin: $indent;
+        // margin: $indent;
         padding: $indent / 2 $indent;
         border-radius: 20px;
         & a {
@@ -57,29 +59,82 @@
           & a {
             color: $white;
           }
-
+        }
+        @include mq(medium) {
+          margin: $indent;
         }
       }
     }
-
-
   }
 }
 
 .traffic__container {
   height: auto;
   position: relative;
-
+  border-bottom: 1px solid $grey;
+  padding-bottom: $indent;
   @include mq(medium) {
-    height: 30vh;
+    height: 25vh;
+    min-height: 14rem;
   }
-
-  // @include mq(large) {
-  //   height: 30vh;
-  // }
-
+  @include mq(large) {
+    height: 35vh;
+    min-height: 18rem;
+  }
 }
 
-// #traffic {
-//   height: 200px;
-// }
+.main__chart--daily {
+  width: 80%;
+  justify-self: center;
+  // height: 25vh;
+  height: 30vh;
+  position: relative;
+  padding-bottom: $indent-lg;
+  border-bottom: 1px solid $grey;
+  @include mq(medium) {
+    // height: 25vh;
+    min-height: 15rem;
+    width: 90%;
+    justify-self: end;
+    border: none;
+  }
+  @include mq(large) {
+    width: 80%;
+    height: 30vh;
+    min-height: 18rem;
+  }
+}
+
+.main__chart--mobile {
+  width: 90%;
+  justify-self: left;
+  height: 23vh;
+  margin-bottom: $col-height-lg;
+  padding-bottom: $indent-lg;
+  // min-height: 18rem;
+  position: relative;
+  // margin-left: -1rem;
+  // padding-bottom: $indent-lg;
+  & .traffic__titlebar--title {
+    margin-left: 1rem;
+  }
+
+  @include mq(medium) {
+    border-left: 1px solid $grey;
+    width: 90%;
+    justify-self: left;
+    min-height: 18rem;
+    padding-left: $indent-lg;
+    & .traffic__titlebar--title {
+      margin-left: $indent-lg;
+    }
+  }
+  @include mq(large) {
+    width: 80%;
+    height: 25vh;
+    min-height: 18rem;
+    margin-left: 0;
+    padding-bottom: $col-height;
+    // padding-left: 0;
+  }
+}

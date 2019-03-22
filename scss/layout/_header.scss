@@ -95,12 +95,17 @@ svg path {
   font-size: 0.7em;
   position: absolute;
   padding: 2px 7px;
-  top: $indent-lg;
+  top: $col-height-lg *1.5;
+  left: $col-height-lg *1.3;
   border-radius: $br--round;
   background: $feijoa;
   color: white;
   z-index: 1;
   visibility: visible;
+  @include mq(medium) {
+    top: $indent-lg;
+    left: auto;
+  }
 }
 
 .notes {

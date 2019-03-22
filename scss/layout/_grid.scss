@@ -23,17 +23,20 @@
   @include grid();
     width: 100vw;
     grid: subgrid;
+    grid-template-rows: repeat(auto-fill, 1fr, auto);
+    grid-gap: $indent;
     // z-index: 2;
   @include mq(medium) {
-    grid-auto-rows: max-content;
+    // grid-auto-rows: max-content;
     grid-gap: $indent-lg;
   }
 
-  @include mq(large) {
+  @include mq(medium) {
     grid-column: 2 / -1;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    grid-auto-rows: auto;
+    grid-gap: $indent-lg;
+    // grid-auto-rows: max-height;
     background-color: $white;
     // grid-template-columns: auto minmax(0, 1fr);
   }

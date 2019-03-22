@@ -18,7 +18,8 @@
 
   @include mq(large) {
     flex-direction: column;
-
+    position: sticky;
+    top: 0;
   }
 }
 

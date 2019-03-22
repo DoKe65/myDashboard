@@ -119,6 +119,8 @@ setToActive(trafficNavigation);
 // Charts
 //============================
 
+// Data for charts
+
 let labelsTrafficHourly = [
   "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm"
 ];
@@ -149,21 +151,21 @@ let labelsDailyTraffic = [
 let labelsMobile = ["Phones", "Tablets", "Desktop"];
 let dataMobile = [15, 15, 70];
 
-let chart = null;
+// Line charts
+let lineChart = null;
 
 // Hide labels per default
-Chart.defaults.global.legend.display = false;
+// Chart.defaults.global.legend.display = false;
 
-function createChart(destination, type, labels, label, data) {
+function createLineChart(destination, type, labels, data) {
 
   let ctx = document.getElementById(destination).getContext('2d');
 
-  chart = new Chart(ctx, {
+  lineChart = new Chart(ctx, {
       type: type,
       data: {
           labels: labels,
           datasets: [{
-              label: label,
               data: data,
               backgroundColor: 'rgba(116, 119, 191, 0.2)',
               borderColor: '#7477BF',
@@ -182,7 +184,10 @@ function createChart(destination, type, labels, label, data) {
                   }
               }]
           },
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          }
       }
   });
 
@@ -193,63 +198,116 @@ function createChart(destination, type, labels, label, data) {
 const chartNavigationContainer = document.getElementById("trafficNavigation");
 const chartNavigation = chartNavigationContainer.querySelector("ul");
 
-// Create initial chart
-createChart("traffic", "line", labelsTrafficWeekly, "TRAFFIC", dataTrafficWeekly);
-createChart("dailyTraffic", "bar", labelsDailyTraffic, "DAILY TRAFFIC", dataTrafficDaily);
-createChart("mobileUsers", "doughnut", labelsMobile, "MOBILE USERS", dataMobile);
+// Create initial charts
+createLineChart("traffic", "line", labelsTrafficWeekly, dataTrafficWeekly);
 
 chartNavigation.addEventListener("click", (e) => {
   if (e.target.tagName === "A") {
     let a = e.target;
     let id = a.parentNode.id;
     if (id === "hourly") {
-      chart.data.labels = labelsTrafficHourly;
-      chart.data.datasets[0].data = dataTrafficHourly;
-      chart.update();
+      lineChart.data.labels = labelsTrafficHourly;
+      lineChart.data.datasets[0].data = dataTrafficHourly;
+      lineChart.update();
     } else if (id === "daily") {
-      chart.data.labels = labelsTrafficDaily;
-      chart.data.datasets[0].data = dataTrafficDaily;
-      chart.update();
+      lineChart.data.labels = labelsTrafficDaily;
+      lineChart.data.datasets[0].data = dataTrafficDaily;
+      lineChart.update();
     } else if (id === "weekly") {
-      chart.data.labels = labelsTrafficWeekly;
-      chart.data.datasets[0].data = dataTrafficWeekly;
-      chart.update();
+      lineChart.data.labels = labelsTrafficWeekly;
+      lineChart.data.datasets[0].data = dataTrafficWeekly;
+      lineChart.update();
     } else {
-      chart.data.labels = labelsTrafficMonthly;
-      chart.data.datasets[0].data = dataTrafficMonthly;
-      chart.update();
+      lineChart.data.labels = labelsTrafficMonthly;
+      lineChart.data.datasets[0].data = dataTrafficMonthly;
+      lineChart.update();
     }
   }
 });
 
+// BarChart
+let barChart = null;
 
-// Original version of weekly line chart
-// let ctx = document.getElementById("traffic").getContext('2d');
-//
-// let weeklyChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-//         datasets: [{
-//             label: 'TRAFFIC',
-//             data: [750, 1240, 900, 1250, 1750, 1250, 1500, 1000, 1500, 2050, 1500, 2000],
-//             backgroundColor: 'rgba(116, 119, 191, 0.2)',
-//             borderColor: '#7477BF',
-//             borderWidth: 1,
-//             lineTension: 0,
-//             pointRadius: 6,
-//             pointHoverBorderColor: '#436678',
-//             pointBackgroundColor: '#fff'
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero:true
-//                 }
-//             }]
-//         },
-//         maintainAspectRatio: false
-//     }
-// });
+function createBarsChart(destination, labels, data) {
+  let ctx = document.getElementById(destination).getContext('2d');
+  barChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+          data: data,
+          backgroundColor: '#7477BF',
+          borderColor: '#7477BF',
+          borderWidth: 1
+      }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            barPercentage: 0.9,
+            barThickness: 0.8,
+                gridLines: {
+                offsetGridLines: true
+            }
+          }]
+        },
+        maintainAspectRatio: false,
+        aspectRatio: 2,
+        legend: {
+          display: false,
+        },
+        layout: {
+            padding: {
+                left: 0,
+                right: 0,
+                top: 30,
+                bottom: 20
+            }
+        }
+      }
+  });
+}
+createBarsChart("dailyTraffic", labelsDailyTraffic, dataTrafficDaily);
+
+// doughnut chart
+
+let doughnutChart = null;
+
+function createDoughnutChart(destination, labels, data) {
+  let ctx = document.getElementById(destination).getContext('2d');
+  doughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labels,
+      datasets: [{
+          data: data,
+          backgroundColor: ['#8dd490', "#2eb5b5", "#7477BF"],
+          borderWidth: 0
+      }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        aspectRatio: 1,
+        legend: {
+          display: true,
+          position: "right",
+          labels: {
+            boxWidth: 20,
+            padding: 15,
+            fontSize: 16
+          }
+        },
+        layout: {
+            padding: {
+                left: 0,
+                right: 0,
+                top: 10,
+                bottom: 0
+            }
+        }
+      }
+  });
+}
+
+
+createDoughnutChart("mobileUsers", labelsMobile, dataMobile);

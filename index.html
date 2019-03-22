@@ -11,17 +11,12 @@
   <body>
     <div class="grid__main">
       <header id="home">
-        <!-- Header & User -->
+  <!-- Header & User -->
         <h1>Your<span class="logoLight">App</span><span class="logoTm">TM</span></h1>
         <div class="header__right">
           <a class="header__bell" href="#">
-            <!-- <object id="icon-bell" type="image/svg+xml" data="icons/icon-bell.svg"></object> -->
             <svg id="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                 <path d="M24 18v-8c0-5.5-4.5-10-10-10S4 4.5 4 10v8l-4 8h9.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H28l-4-8zM14 28c-1.3 0-2.4-.8-2.8-2h5.6c-.4 1.2-1.5 2-2.8 2zM3 24l3-6v-8c0-4.4 3.6-8 8-8s8 3.6 8 8v8l3 6H3z" fill="#fff"/>
-                <!-- <foreignobject class="node" x="46" y="22" width="100" height="100">
-
-                    <div style="border:1px green solid">I'm a div inside a SVG.</div>
-            </foreignobject> -->
             </svg>
             <span class="header__bell--badge">3</span>
           </a>
@@ -32,6 +27,7 @@
         </div>
       </header>
 
+<!-- Main Navigation  -->
       <nav id="navigationbar">
 
         <ul>
@@ -50,7 +46,10 @@
         </ul>
       </nav>
 
+<!-- Dashboard / Main Content -->
       <main id="dashboard" class="grid__content">
+
+<!-- Title and search bar -->
         <div class="spanTwo panel">
           <div  class="panel__title">
             <h2>Dashboard</h2>
@@ -59,7 +58,11 @@
             <input class="panel__search--input" type="text" name="searchbar" id="search" placeholder="Search">
           </div>
         </div>
+
+<!-- Alert -->
         <div class="spanTwo main__alert"><div>Alert</div><button class="close">x</button></div>
+
+<!-- Traffic Chart Title and Navigation -->
         <div id="charts" class="spanTwo main__chart--traffic">
           <div class="traffic__titlebar">
             <h2 class="traffic__titlebar--title">Traffic</h2>
@@ -72,20 +75,38 @@
               </ul>
             </nav>
           </div>
+
+<!-- Traffic Chart -->
           <div class="traffic__container">
             <canvas id="traffic"></canvas>
           </div>
         </div>
+
+<!-- Daily Chart -->
         <div class="spanOne main__chart--daily">
+          <h2 class="traffic__titlebar--title">Daily Traffic</h2>
           <canvas id="dailyTraffic"></canvas>
         </div>
+
+<!-- Mobile Chart -->
         <div class="spanOne main__chart--mobile">
+          <h2 class="traffic__titlebar--title">Mobile Users</h2>
           <canvas id="mobileUsers"></canvas>
         </div>
+
+<!-- Social Stats Widgets -->
         <div class="spanTwo main__social">Social Stats</div>
+
+<!-- New Members -->
         <div id="members" class="spanOne main__members--new">New Members</div>
+
+<!-- Recent Activities -->
         <div class="spanOne main__members--recent">Recent Activity</div>
+
+<!-- Message to Users and User Search -->
         <div class="spanOne main__form">Message User</div>
+
+<!-- Settings -->
         <div id="settings" class="spanOne main__settings">Settings</div>
       </main>
 
