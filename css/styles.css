@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Krub:300,400,700");
+.social__widget, #members {
+  padding: 0.7rem 0;
+  border-top: 1px solid #4D4C72;
+  border-bottom: 1px solid #4D4C72; }
+  @media (min-width: 768px) {
+    .social__widget, #members {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1.4rem 0; } }
+
+.member img {
+  width: 2.4rem;
+  border-radius: 50%; }
+  .member img img:hover {
+    transform: scale(2); }
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -746,24 +764,14 @@ svg path {
       padding-bottom: 2.4rem; } }
 
 .social__widget {
-  width: 85%;
-  padding: 0.7rem 0;
-  border-top: 1px solid #4D4C72;
-  border-bottom: 1px solid #4D4C72; }
-  @media (min-width: 768px) {
-    .social__widget {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 1.4rem 0; } }
+  width: 85%; }
   @media (min-width: 768px) {
     .social__widget--title {
       width: 100%;
       margin-bottom: 0.7rem; } }
   .social__widget--sn {
     background-color: #eeeff7;
-    border: 1px solid;
+    border: #9799cf 1px solid;
     width: 100%;
     margin: 0.7rem auto;
     border-radius: 5px;
@@ -775,6 +783,8 @@ svg path {
       .social__widget--sn {
         margin: 0.7rem 0;
         width: 32%; } }
+  .social__widget--text {
+    width: 60%; }
   .social__widget--subtitle {
     color: #7477BF;
     font-weight: 700;
@@ -782,19 +792,20 @@ svg path {
   .social__widget--nr {
     font-weight: 300;
     font-size: 48px;
-    margin-top: -0.7rem; }
+    margin-top: -0.7rem;
+    color: #9799cf; }
 
 .social {
   fill: #fff;
-  width: 30%;
-  margin: -2.4rem 0; }
+  width: 60%;
+  margin: -2.4rem; }
   .social__circle {
     fill: #7477BF;
     cx: 200;
     cy: 50;
     r: 80; }
     .facebook .social__circle {
-      r: 88; }
+      r: 80; }
   .social__icon {
     transform: scale(3);
     transform-origin: -235% -15%;
@@ -802,5 +813,22 @@ svg path {
     .social__icon.fb {
       transform: scale(1.8);
       transform-origin: -891% 7%; }
+
+#members {
+  border-top: none;
+  padding-top: 0; }
+
+.member {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; }
+  .member .name {
+    flex-grow: 3; }
+  .member .email {
+    color: #9799cf; }
+  .member .date {
+    color: #95999e;
+    align-self: flex-end; }
 
 /*# sourceMappingURL=styles.css.map */

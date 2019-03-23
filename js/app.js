@@ -1,25 +1,3 @@
-// Trim SVGs
-
-function trimSvgWhitespace() {
-
-  // get all SVG objects in the DOM
-  let svgs = document.getElementsByClassName("social");
-
-  // go through each one and add a viewbox that ensures all children are visible
-  for (let i=0, l=svgs.length; i<l; i++) {
-
-    let svg = svgs[i],
-        box = svg.getBBox(), // <- get the visual boundary required to view all children
-        viewBox = [box.x, box.y, box.width, box.height].join(" ");
-
-    // set viewable area based on value above
-    svg.setAttribute("viewBox", viewBox);
-  }
-}
-
-trimSvgWhitespace();
-
-
 //===========================================
 // Closing Elements
 //===========================================
@@ -27,9 +5,13 @@ trimSvgWhitespace();
 function closeButton(element) {
   element.addEventListener('click', (e) => {
     if (e.target.tagName === "BUTTON") {
+      // const target = e.target;
       const parent = e.target.parentNode;
       const gdParent = parent.parentNode;
       gdParent.removeChild(parent);
+      if (e.target.id === "closeAll") {
+        gdParent.parentNode.removeChild(gdParent);
+      }
     }
     let noteButton = notesDiv.getElementsByTagName("BUTTON");
     if (noteButton.length === 0) {
@@ -71,13 +53,14 @@ function noteList() {
     noteLi.appendChild(close);
   }
   closeButton(notesDiv);
-  // let closeAll = document.createElement("li");
-  // closeAll.textContent = "Close all notifications";
-  // notesDiv.appendChild(closeAll);
-  // let close = document.createElement("button");
-  // close.classList.add("close");
-  // close.textContent = "x";
-  // closeAll.appendChild(close);
+  let closeAll = document.createElement("li");
+  closeAll.textContent = "Close all notifications";
+  notesUl.appendChild(closeAll);
+  let close = document.createElement("button");
+  close.classList.add("close");
+  close.setAttribute("id", "closeAll");
+  close.textContent = "x";
+  closeAll.appendChild(close);
 }
 
 noteList();
@@ -175,9 +158,6 @@ let dataMobile = [15, 15, 70];
 
 // Line charts
 let lineChart = null;
-
-// Hide labels per default
-// Chart.defaults.global.legend.display = false;
 
 function createLineChart(destination, type, labels, data) {
 
@@ -332,3 +312,19 @@ function createDoughnutChart(destination, labels, data) {
 }
 
 createDoughnutChart("mobileUsers", labelsMobile, dataMobile);
+
+// ===========
+// Members
+// ===========
+
+// New Members Widget
+const src = "../images/";
+const members = [
+  {
+    name: "Victoria Chambers",
+    mail: "victoria.chambers80@example.com",
+    img: "<img src='../myDashboard/images/member-1.jpg'></img>"
+  }
+];
+
+document.getElementById("members").innerHTML = members[0].img;

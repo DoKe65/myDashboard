@@ -47,6 +47,7 @@ $color-palettes: (
   color-primary  : (
     xx-light  : lighten($color-primary, 35%),
     x-light  : lighten($color-primary, 25%),
+    light    : lighten($color-primary, 10%),
     base     : $color-primary,
     dark     : darken($color-primary, 20%)
   )
@@ -76,7 +77,7 @@ $br--round   : 50%;
 
 // Borders
 
-$br--blue: 1px solid lighten($grey, 12%);
+$br--grey: 1px solid lighten($grey, 12%);
 $br--blue: 1px solid $color-secundary;
 $br--green: 4px solid $feijoa;
 $br--green-fine: 1px solid $feijoa;

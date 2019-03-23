@@ -1,0 +1,30 @@
+// ====================
+// Members section
+// ====================
+
+#members {
+  @extend %widget;
+  border-top: none;
+  padding-top: 0;
+
+}
+
+.member {
+  font-weight: $font-weight--light;
+  @include flex();
+  & img {
+    @extend %img;
+  }
+  & .name {
+    flex-grow: 3;
+  }
+  & .email {
+    color: palette(color-primary, light);
+  }
+
+  & .date {
+    color: palette(grey, light);
+    align-self: flex-end;
+  }
+
+}

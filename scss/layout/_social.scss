@@ -4,14 +4,8 @@
 
 .social__widget {
   width: 85%;
-  padding: $indent 0;
-  border-top: $br--blue;
-  border-bottom: $br--blue;
+  @extend %widget;
 
-  @include mq(medium) {
-  @include flex($just: space-between, $wrap: wrap);
-    padding: $indent-lg 0;
-  }
   &--title {
     @include mq(medium) {
       width: 100%;
@@ -31,6 +25,10 @@
       width: 32%;
     }
   }
+  &--text {
+    width: 60%;
+  }
+
   &--subtitle {
     color: $color-primary;
     font-weight: $font-weight--bold;
@@ -41,14 +39,15 @@
     font-weight: $font-weight--light;
     font-size: $xlarge__font-size;
     margin-top: -$indent;
+    color: palette(color-primary, light);
   }
 
 }
 
 .social {
   fill: $white;
-  width: 30%;
-  margin: -$col-height 0;
+  width: 60%;
+  margin: -$col-height;
 
   &__circle {
     fill: $color-primary;
@@ -56,7 +55,7 @@
     cy: 50;
     r: 80;
     .facebook & {
-      r: 88;
+      r: 80;
     }
   }
 
