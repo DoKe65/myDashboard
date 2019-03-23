@@ -66,6 +66,8 @@ $ui-colors: (
 $base__font-size: 16px;
 $base__line     : 24px;
 $letter-space   : 1px;
+$large__font-size: 32px;
+$xlarge__font-size: 48px;
 
 // Border Radius
 
@@ -74,7 +76,7 @@ $br--round   : 50%;
 
 // Borders
 
-$br--grey: 1px solid lighten($grey, 12%);
+$br--blue: 1px solid lighten($grey, 12%);
 $br--blue: 1px solid $color-secundary;
 $br--green: 4px solid $feijoa;
 $br--green-fine: 1px solid $feijoa;

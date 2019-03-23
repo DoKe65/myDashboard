@@ -5,8 +5,22 @@
 // Main elements
 
 .spanTwo {
+  width: 100%;
   @include mq(medium) {
     grid-column: 1 / -1;
+  }
+}
+
+.dashboard__titlebar--titles {
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: $base__font-size;
+  font-weight: $font-weight--bold;
+  margin-bottom: 0;
+  @include mq(medium) {
+    margin: auto 0;
+    text-align: left;
   }
 }
 
@@ -29,7 +43,7 @@
   @include mq(medium) {
     padding: 0 $col-height;
     background-color: white;
-    border-right: $br--grey;
+    border-right: $br--blue;
     & h2 {
       margin: auto;
       margin-top: $indent;
@@ -60,7 +74,7 @@
     }
   }
   @include mq(medium) {
-    border-bottom: $br--grey;
+    border-bottom: $br--blue;
   }
 }
 

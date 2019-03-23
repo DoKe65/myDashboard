@@ -21,18 +21,8 @@
   @include flex($dir: column, $algnI: center);
   @include mq(medium) {
     @include flex($dir: row, $just: space-between);
-}
-
-  &--title {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: $base__font-size;
-    margin-bottom: 0;
-    @include mq(medium) {
-      margin: auto 0;
-      text-align: left;
-    }
   }
+
 
   &--nav {
 
@@ -43,10 +33,11 @@
       // background-color: $color-secundary;
       padding: $indent;
       background-color: $white;
-      color: $black;
+      color: palette(black, light);
 
       & li {
         @include flex();
+        font-weight: $font-weight--light;
         height: auto;
         // margin: $indent;
         padding: $indent / 2 $indent;
@@ -71,7 +62,7 @@
 .traffic__container {
   height: auto;
   position: relative;
-  border-bottom: 1px solid $grey;
+  border-bottom: $br--blue;
   padding-bottom: $indent;
   @include mq(medium) {
     height: 25vh;
@@ -90,11 +81,12 @@
   height: 30vh;
   position: relative;
   padding-bottom: $indent-lg;
-  border-bottom: 1px solid $grey;
+  border-bottom: $br--blue;
   @include mq(medium) {
-    // height: 25vh;
+    height: 28vh;
     min-height: 15rem;
     width: 90%;
+    margin-top: $indent;
     justify-self: end;
     border: none;
   }
@@ -108,24 +100,25 @@
 .main__chart--mobile {
   width: 90%;
   justify-self: left;
-  height: 23vh;
-  margin-bottom: $col-height-lg;
+  height: 25vh;
+  margin-bottom: $indent;
   padding-bottom: $indent-lg;
   // min-height: 18rem;
   position: relative;
   // margin-left: -1rem;
   // padding-bottom: $indent-lg;
-  & .traffic__titlebar--title {
+  & .dashboard__titlebar--titles {
     margin-left: 1rem;
   }
 
   @include mq(medium) {
-    border-left: 1px solid $grey;
+    border-left: $br--blue;
     width: 90%;
     justify-self: left;
     min-height: 18rem;
+    margin-top: $indent;
     padding-left: $indent-lg;
-    & .traffic__titlebar--title {
+    & .dashboard__titlebar--titles {
       margin-left: $indent-lg;
     }
   }

@@ -1,0 +1,72 @@
+// ============================
+// Social Stats
+// ============================
+
+.social__widget {
+  width: 85%;
+  padding: $indent 0;
+  border-top: $br--blue;
+  border-bottom: $br--blue;
+
+  @include mq(medium) {
+  @include flex($just: space-between, $wrap: wrap);
+    padding: $indent-lg 0;
+  }
+  &--title {
+    @include mq(medium) {
+      width: 100%;
+      margin-bottom: $indent;
+    }
+  }
+  &--sn {
+    background-color: palette(color-primary, xx-light);
+    border: palette(color-primary, light) 1px solid;
+    width: 100%;
+    margin: $indent auto;
+    // height: auto;
+    border-radius: $br--default;
+    @include flex($dir: row, $just: space-around);
+    @include mq(medium) {
+      margin: $indent 0;
+      width: 32%;
+    }
+  }
+  &--subtitle {
+    color: $color-primary;
+    font-weight: $font-weight--bold;
+    margin-bottom: 0;
+  }
+
+  &--nr {
+    font-weight: $font-weight--light;
+    font-size: $xlarge__font-size;
+    margin-top: -$indent;
+  }
+
+}
+
+.social {
+  fill: $white;
+  width: 30%;
+  margin: -$col-height 0;
+
+  &__circle {
+    fill: $color-primary;
+    cx: 200;
+    cy: 50;
+    r: 80;
+    .facebook & {
+      r: 88;
+    }
+  }
+
+  &__icon {
+    transform: scale(3);
+    transform-origin: -235% -15%;
+    transform-box: fill-box;
+    &.fb {
+      transform: scale(1.8);
+      transform-origin: -891% 7%;
+    }
+  }
+}

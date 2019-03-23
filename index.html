@@ -63,9 +63,9 @@
         <div class="spanTwo main__alert"><div>Alert</div><button class="close">x</button></div>
 
 <!-- Traffic Chart Title and Navigation -->
-        <div id="charts" class="spanTwo main__chart--traffic">
+        <section id="charts" class="spanTwo main__chart--traffic">
           <div class="traffic__titlebar">
-            <h2 class="traffic__titlebar--title">Traffic</h2>
+            <h2 class="dashboard__titlebar--titles">Traffic</h2>
             <nav id="trafficNavigation" class="traffic__titlebar--nav">
               <ul>
                 <li id="hourly"><a href="#">Hourly</a></li>
@@ -80,22 +80,88 @@
           <div class="traffic__container">
             <canvas id="traffic"></canvas>
           </div>
-        </div>
+        </section>
 
 <!-- Daily Chart -->
-        <div class="spanOne main__chart--daily">
-          <h2 class="traffic__titlebar--title">Daily Traffic</h2>
+        <section class="spanOne main__chart--daily">
+          <h2 class="dashboard__titlebar--titles">Daily Traffic</h2>
           <canvas id="dailyTraffic"></canvas>
-        </div>
+        </section>
 
 <!-- Mobile Chart -->
-        <div class="spanOne main__chart--mobile">
-          <h2 class="traffic__titlebar--title">Mobile Users</h2>
+        <section class="spanOne main__chart--mobile">
+          <h2 class="dashboard__titlebar--titles">Mobile Users</h2>
           <canvas id="mobileUsers"></canvas>
-        </div>
+        </section>
 
 <!-- Social Stats Widgets -->
-        <div class="spanTwo main__social">Social Stats</div>
+        <section class="spanTwo social__widget">
+          <h2 class="dashboard__titlebar--titles social__widget--title">Social Stats</h2>
+          <div class="social__widget--sn">
+
+              <svg class="social" xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 400 200">
+                <g class="twitter">
+                <circle class="social__circle" ></circle>
+                  <path class="social__icon tw" d="M32 3.1c-1.2.5-2.4.9-3.8 1 1.4-.8 2.4-2.1
+                      2.9-3.6-1.3.8-2.7 1.3-4.2 1.6C25.8.8 24 0 22.2 0c-3.6 0-6.6
+                      2.9-6.6 6.6 0 .5.1 1 .2 1.5-5.5-.3-10.3-2.9-13.6-6.9-.6 1-.9
+                      2.1-.9 3.3 0 2.3 1.2 4.3 2.9 5.5-1.1 0-2.1-.3-3-.8v.1c0 3.2
+                      2.3 5.8 5.3 6.4-.6.1-1.1.2-1.7.2-.4 0-.8 0-1.2-.1.8 2.6 3.3
+                      4.5 6.1 4.6-2.2 1.8-5.1 2.8-8.2 2.8-.5 0-1.1 0-1.6-.1 2.9 1.9
+                      6.4 3 10.1 3 12.1 0 18.7-10 18.7-18.7v-.8c1.3-1 2.4-2.2 3.3-3.5z"></path>
+                    </g>
+              </svg>
+
+            <div class="social__widget--text">
+              <h3 class="social__widget--subtitle">Twitter</h3>
+              <div class="social__widget--nr">10,345</div>
+            </div>
+          </div>
+          <div class="social__widget--sn">
+            <svg class="social" xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 400 200">
+              <g class="facebook">
+              <circle class="social__circle" ></circle>
+                <path class="social__icon fb" d="M40.43 21.739h-7.645v-5.014c0-1.883 1.248-2.322
+                2.127-2.322h5.395V6.125l-7.43-.029c-8.248 0-10.125 6.174-10.125 10.125v5.518h
+                -4.77v8.53h4.77v24.137h10.033V30.269h6.77l.875-8.53z"></path>
+                  </g>
+            </svg>
+            <div class="social__widget--text">
+              <h3 class="social__widget--subtitle">Facebook</h3>
+              <div class="social__widget--nr">8,739</div>
+            </div>
+          </div>
+          <div class="social__widget--sn">
+            <svg class="social" xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 400 200">
+              <g class="google">
+              <circle class="social__circle" ></circle>
+                <path class="social__icon go" d="M17.7 25.7c0-.3 0-.5-.1-.8-.1-.2-.1-.5
+                  -.2-.7-.1-.2-.2-.4-.3-.7-.2-.2-.3-.4-.4-.6-.1-.2-.3-.3-.5-.6l-.5-.5c
+                  -.1-.1-.3-.3-.6-.5s-.5-.4-.6-.4-.3-.2-.6-.4-.5-.4-.6-.4h-1c-.7 0-1.4
+                  0-2 .1-.7.1-1.4.2-2.1.5-.7.2-1.3.5-1.9.9s-1 .8-1.3 1.4c-.3.6-.5 1.3-.5
+                  2.1 0 .9.2 1.7.7 2.3.5.7 1.1 1.2 1.8 1.6s1.5.7 2.3.9 1.6.3 2.4.3c.8 0
+                  1.5-.1 2.2-.2.7-.2 1.3-.4 1.9-.8.6-.3 1.1-.8 1.4-1.4.3-.6.5-1.3.5-2.1zM15.4
+                  9.1c0-.8-.1-1.6-.3-2.5-.2-.9-.5-1.7-.9-2.5s-.9-1.5-1.6-2c-.7-.5-1.5-.8-2.3-.8-1.2
+                  0-2.1.4-2.8 1.3-.7.9-1 1.9-1 3.2 0 .6.1 1.2.2 1.9s.4 1.3.7 2c.3.7.7 1.3 1.1
+                  1.8.4.5.9 1 1.5 1.3.6.3 1.2.5 1.9.5 1.2 0 2.1-.4 2.7-1.2.5-.7.8-1.7.8-3zM12.9
+                  0h8.4l-2.6 1.5h-2.6c.9.6 1.6 1.4 2.1 2.4S19 6 19 7.1c0 .9-.1 1.8-.4 2.5-.3.7-.7
+                  1.3-1.1 1.8-.4.4-.8.9-1.3 1.2-.4.4-.8.8-1.1 1.2-.3.4-.4.8-.4 1.3 0 .3.1.7.3 1
+                  .2.3.5.6.8.9.3.3.7.6 1.1.9.4.3.8.7 1.2 1.1.4.4.8.8 1.1 1.3.3.5.6 1 .8 1.6.2.6.3
+                  1.3.3 2 0 2.1-.9 3.9-2.7 5.4-1.9 1.7-4.6 2.5-8.1 2.5-.8 0-1.5-.1-2.3-.2-.8-.1
+                  -1.6-.3-2.3-.6-.8-.3-1.5-.7-2.1-1.1-.6-.4-1.1-1-1.5-1.7C1 27.6.8 26.9.8 26c0
+                  -.8.2-1.6.7-2.6.4-.8 1-1.5 1.8-2.1.8-.6 1.8-1.1 2.8-1.4 1-.3 2-.5 3-.7.9-.1
+                  1.9-.2 2.9-.3-.8-1.1-1.2-2-1.2-2.9v-.5c0-.1.1-.3.1-.4 0-.1.1-.2.2-.4s.1-.3.1
+                  -.4c-.5.1-1 .1-1.3.1-1.9 0-3.5-.6-4.9-1.9-1.4-1.3-2-2.8-2-4.7C3 6 3.6 4.4 4.8
+                  3 6 1.7 7.5.8 9.3.4c1.2-.3 2.4-.4 3.6-.4zm19.9
+                  4.9v2.5h-4.9v4.9h-2.5V7.4h-4.9V4.9h4.9V0h2.5v4.9h4.9z"></path>
+                  </g>
+            </svg>
+            <div class="social__widget--text">
+              <h3 class="social__widget--subtitle">Google+</h3>
+              <div class="social__widget--nr">2,530</div>
+            </div>
+          </div>
+        </section>
 
 <!-- New Members -->
         <div id="members" class="spanOne main__members--new">New Members</div>

@@ -3,7 +3,7 @@
 }
 
 body {
-  color: palette(black);
+  color: palette(black, light);
   font-size: $base__font-size;
   font-family: $font-family;
   line-height: ($base__line/$base__font-size);
@@ -13,6 +13,7 @@ body {
 a:active {
   color: $black;
 }
+
 
 // div {
 //   border: grey 1px solid;
