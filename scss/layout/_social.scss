@@ -17,10 +17,9 @@
     border: palette(color-primary, light) 1px solid;
     width: 100%;
     margin: $indent auto;
-    // height: auto;
     border-radius: $br--default;
     @include flex($dir: row, $just: space-around);
-    @include mq(medium) {
+    @include mq(slmedium) {
       margin: $indent 0;
       width: 32%;
     }
@@ -37,9 +36,14 @@
 
   &--nr {
     font-weight: $font-weight--light;
-    font-size: $xlarge__font-size;
+    font-size: $large__font-size;
     margin-top: -$indent;
+    margin-bottom: $indent-lg;
     color: palette(color-primary, light);
+    @include mq(large) {
+      font-size: $xlarge__font-size;
+      margin-bottom: $indent;
+    }
   }
 
 }

@@ -10,15 +10,16 @@
   padding: $indent 0;
   border-top: $br--blue;
   border-bottom: $br--blue;
-
-  @include mq(medium) {
+  width: 80%;
+  @include mq(slmedium) {
   @include flex($just: space-between, $wrap: wrap);
     padding: $indent-lg 0;
   }
 }
 
 %img {
-  width: $col-height;
+  width: auto;
+  height: $col-height;
   border-radius: $br--round;
   %img:hover {
     transform: scale(2);

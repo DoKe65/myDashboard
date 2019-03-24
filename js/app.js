@@ -5,12 +5,11 @@
 function closeButton(element) {
   element.addEventListener('click', (e) => {
     if (e.target.tagName === "BUTTON") {
-      // const target = e.target;
       const parent = e.target.parentNode;
       const gdParent = parent.parentNode;
       gdParent.removeChild(parent);
       if (e.target.id === "closeAll") {
-        gdParent.parentNode.removeChild(gdParent);
+      gdParent.parentNode.removeChild(gdParent);
       }
     }
     let noteButton = notesDiv.getElementsByTagName("BUTTON");
@@ -323,8 +322,100 @@ const members = [
   {
     name: "Victoria Chambers",
     mail: "victoria.chambers80@example.com",
-    img: "<img src='../myDashboard/images/member-1.jpg'></img>"
+    img: "../myDashboard/images/member-1.jpg",
+    date: "03/24/19",
+    message: " commented on YourApp's SEO Tips",
+    time: "4 hours ago"
+  },
+  {
+    name: "Dale Byrd",
+    mail: "dale.byrd52@example.com",
+    img: "../myDashboard/images/member-2.jpg",
+    date: "03/22/19",
+    message: " like the post Facebook's Changes for 2019",
+    time: "5 hours ago"
+  },
+  {
+    name: "Dawn Wood",
+    mail: "dawn.wood16@example.com",
+    img: "../myDashboard/images/member-3.jpg",
+    date: "03/22/19",
+    message: " commented on Facebook's Changes for 2019",
+    time: "1 day ago"
+  },
+  {
+    name: "Dan Oliver",
+    mail: "dan.oliver82@example.com",
+    img: "../myDashboard/images/member-4.jpg",
+    date: "03/19/19",
+    message: " posted YourApp's SEO Tips",
+    time: "3 days ago"
   }
 ];
 
-document.getElementById("members").innerHTML = members[0].img;
+for (let i = 0; i < members.length; i++) {
+  // NEW MEMBERS
+  // add member div for each member
+  const parentDiv = document.getElementById("members");
+  let memberDiv = document.createElement("div");
+  memberDiv.setAttribute("class", "member");
+  parentDiv.appendChild(memberDiv);
+  // add members info to members div
+  // add photo
+  let memberImg = document.createElement("img");
+  memberImg.setAttribute("src", members[i].img);
+  memberDiv.appendChild(memberImg);
+  // add div for name and email
+  let nameMail = document.createElement("div");
+  nameMail.setAttribute("class", "nameMail");
+  memberDiv.appendChild(nameMail);
+  // add name and mail
+  let memberName = document.createElement("p");
+  memberName.setAttribute("class", "name");
+  memberName.textContent = members[i].name;
+  nameMail.appendChild(memberName);
+  let memberMail = document.createElement("p");
+  memberMail.setAttribute("class", "email");
+  memberMail.textContent = members[i].mail;
+  nameMail.appendChild(memberMail);
+  // date of inscription
+  let date = document.createElement("div");
+  date.setAttribute("class", "date");
+  date.textContent = members[i].date;
+  memberDiv.appendChild(date);
+
+  // RECENT ACTIVITY
+  // add activity div
+  let actParentDiv = document.getElementById("recent");
+  let actDiv = document.createElement("div");
+  actDiv.setAttribute("class", "member");
+  actParentDiv.appendChild(actDiv);
+  // add posts to activity div
+  // add photo
+  let actImg = document.createElement("img");
+  actImg.setAttribute("src", members[i].img);
+  actDiv.appendChild(actImg);
+  // add div for post and time
+  let postDiv = document.createElement("div");
+  postDiv.setAttribute("class", "nameMail");
+  actDiv.appendChild(postDiv);
+  // add name and mail
+  let post = document.createElement("p");
+  post.setAttribute("class", "name");
+  post.textContent = members[i].name + members[i].message;
+  postDiv.appendChild(post);
+  let time = document.createElement("p");
+  time.setAttribute("class", "time");
+  time.textContent = members[i].time;
+  postDiv.appendChild(time);
+  // add arrow
+  // let arrowDiv = document.createElement("div");
+  // arrowDiv.setAttribute("class", "arrow");
+  let arrow = document.createElement("button");
+  arrow.setAttribute("class", "arrow");
+  arrow.textContent = ">";
+  // arrowDiv.appendChild(arrow);
+  actDiv.appendChild(arrow);
+}
+
+// document.getElementById("members").innerHTML = members[0].img;

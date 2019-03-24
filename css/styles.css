@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Krub:300,400,700");
-.social__widget, #members {
+.social__widget, #members,
+#recent {
   padding: 0.7rem 0;
   border-top: 1px solid #4D4C72;
-  border-bottom: 1px solid #4D4C72; }
-  @media (min-width: 768px) {
-    .social__widget, #members {
+  border-bottom: 1px solid #4D4C72;
+  width: 80%; }
+  @media (min-width: 550px) {
+    .social__widget, #members,
+    #recent {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -12,7 +15,8 @@
       padding: 1.4rem 0; } }
 
 .member img {
-  width: 2.4rem;
+  width: auto;
+  height: 2.4rem;
   border-radius: 50%; }
   .member img img:hover {
     transform: scale(2); }
@@ -362,16 +366,16 @@ a:active {
   width: 100vw;
   grid: subgrid;
   grid-template-rows: repeat(auto-fill, 1fr, auto);
-  grid-gap: 0.7rem; }
+  grid-row-gap: 0.7rem; }
   @media (min-width: 768px) {
     .grid__content {
-      grid-gap: 1.4rem; } }
+      grid-row-gap: 1.4rem; } }
   @media (min-width: 768px) {
     .grid__content {
       grid-column: 2 / -1;
       grid-template-columns: 1fr 1fr;
       width: 100%;
-      grid-gap: 1.4rem;
+      grid-row-gap: 1.4rem;
       background-color: #fff; } }
 
 header {
@@ -433,7 +437,8 @@ h1 {
   width: 33%;
   height: 3.6rem;
   padding-right: 1.4rem;
-  border-right: 1px solid #4D4C72; }
+  border-right: 1px solid #4D4C72;
+  position: relative; }
 
 @keyframes turn {
   50% {
@@ -459,8 +464,8 @@ svg path {
   font-size: 0.7em;
   position: absolute;
   padding: 2px 7px;
-  top: 5.4rem;
-  left: 4.68rem;
+  top: 0.7rem;
+  left: 1.05rem;
   border-radius: 50%;
   background: #8dd490;
   color: white;
@@ -468,7 +473,6 @@ svg path {
   visibility: visible; }
   @media (min-width: 768px) {
     .header__bell--badge {
-      top: 1.4rem;
       left: auto; } }
 
 .notes {
@@ -779,7 +783,7 @@ svg path {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around; }
-    @media (min-width: 768px) {
+    @media (min-width: 550px) {
       .social__widget--sn {
         margin: 0.7rem 0;
         width: 32%; } }
@@ -791,9 +795,14 @@ svg path {
     margin-bottom: 0; }
   .social__widget--nr {
     font-weight: 300;
-    font-size: 48px;
+    font-size: 32px;
     margin-top: -0.7rem;
+    margin-bottom: 1.4rem;
     color: #9799cf; }
+    @media (min-width: 1024px) {
+      .social__widget--nr {
+        font-size: 48px;
+        margin-bottom: 0.7rem; } }
 
 .social {
   fill: #fff;
@@ -814,21 +823,86 @@ svg path {
       transform: scale(1.8);
       transform-origin: -891% 7%; }
 
-#members {
+#members,
+#recent {
   border-top: none;
-  padding-top: 0; }
+  padding-top: 0;
+  padding-bottom: 0;
+  flex-direction: column;
+  width: 85%; }
+  @media (min-width: 768px) {
+    #members,
+    #recent {
+      justify-self: right;
+      padding-right: 0.7rem;
+      flex-basis: 1; } }
+
+@media (min-width: 768px) {
+  #recent {
+    justify-self: left;
+    padding-left: 0.7rem;
+    border-left: 1px solid #4D4C72; } }
 
 .member {
   font-weight: 300;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap; }
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #4D4C72; }
+  @media (min-width: 768px) {
+    .member {
+      min-height: 5.5rem; } }
+  .member:last-child {
+    border: none; }
+  .member img {
+    display: none;
+    margin: 0.7rem;
+    margin-left: 0;
+    margin-right: 0.5rem; }
+    @media (min-width: 768px) {
+      #members .member img {
+        display: block;
+        margin: 1.4rem; } }
+    @media (min-width: 1024px) {
+      #recent .member img {
+        display: block;
+        margin: 1.4rem; } }
+  .member .nameMail {
+    flex-grow: 2; }
   .member .name {
-    flex-grow: 3; }
-  .member .email {
-    color: #9799cf; }
+    margin-top: 0.7rem;
+    margin-bottom: 0; }
+    @media (min-width: 768px) {
+      .member .name {
+        margin-top: 1.05rem; } }
+  .member .email, .member .time {
+    color: #9799cf;
+    margin: 0;
+    font-size: 10px; }
+    @media (min-width: 1024px) {
+      .member .email, .member .time {
+        font-size: 16px; } }
+  .member .time {
+    color: #95999e; }
   .member .date {
     color: #95999e;
-    align-self: flex-end; }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 10px; }
+    @media (min-width: 1024px) {
+      .member .date {
+        font-size: 16px; } }
+  .member .arrow {
+    display: none; }
+    @media (min-width: 550px) {
+      .member .arrow {
+        display: block;
+        border: none;
+        background-color: #fff;
+        color: #8dd490;
+        font-size: 1.4rem;
+        padding: 0; } }
 
 /*# sourceMappingURL=styles.css.map */

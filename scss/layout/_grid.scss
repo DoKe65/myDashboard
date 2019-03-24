@@ -14,7 +14,7 @@
     grid-template-columns: auto minmax(0, 1fr);
     height: 100%;
     // height: fit-content;
-
+    
   }
 
 }
@@ -24,18 +24,18 @@
     width: 100vw;
     grid: subgrid;
     grid-template-rows: repeat(auto-fill, 1fr, auto);
-    grid-gap: $indent;
+    grid-row-gap: $indent;
     // z-index: 2;
   @include mq(medium) {
     // grid-auto-rows: max-content;
-    grid-gap: $indent-lg;
+    grid-row-gap: $indent-lg;
   }
 
   @include mq(medium) {
     grid-column: 2 / -1;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    grid-gap: $indent-lg;
+    grid-row-gap: $indent-lg;
     // grid-auto-rows: max-height;
     background-color: $white;
     // grid-template-columns: auto minmax(0, 1fr);

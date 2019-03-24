@@ -2,29 +2,97 @@
 // Members section
 // ====================
 
-#members {
+#members,
+#recent {
   @extend %widget;
   border-top: none;
   padding-top: 0;
+  padding-bottom: 0;
+  flex-direction: column;
+  width: 85%;
+  @include mq(medium) {
+    justify-self: right;
+    padding-right: $indent;
+    flex-basis: 1;
+  }
+}
 
+#recent {
+  @include mq(medium) {
+    justify-self: left;
+    padding-left: $indent;
+    border-left: $br--blue;
+  }
 }
 
 .member {
   font-weight: $font-weight--light;
   @include flex();
+  border-bottom: $br--blue;
+  @include mq(medium) {
+    min-height: 5.5rem;
+  }
+  &:last-child {
+    border: none;
+  }
   & img {
     @extend %img;
+    display: none;
+    margin: $indent;
+    margin-left: 0;
+    margin-right: 0.5rem;
+    #members & {
+      @include mq(medium) {
+        display: block;
+        margin: $indent-lg;
+      }
+    }
+    #recent & {
+      @include mq(large) {
+        display: block;
+        margin: $indent-lg;
+      }
+    }
+  }
+  & .nameMail {
+    flex-grow: 2;
   }
   & .name {
-    flex-grow: 3;
+    margin-top: $indent;
+    margin-bottom: 0;
+    @include mq(medium) {
+      margin-top: $indent * 1.5;
+    }
   }
-  & .email {
+  & .email,
+  & .time {
     color: palette(color-primary, light);
+    margin: 0;
+    font-size: $small__font-size;
+    @include mq(large) {
+      font-size: $base__font-size;
+    }
   }
-
+  & .time {
+    color: palette(grey, light);
+  }
   & .date {
     color: palette(grey, light);
-    align-self: flex-end;
+    @include flex($algnI: center);
+    font-size: $small__font-size;
+    @include mq(large) {
+      font-size: $base__font-size;
+    }
   }
-
+  & .arrow {
+    display: none;
+    @include mq(slmedium) {
+      display: block;
+      border: none;
+      background-color: $white;
+      color: $feijoa;
+      font-size: $indent-lg;
+      padding: 0;
+    }
+  }
 }

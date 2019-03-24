@@ -10,6 +10,11 @@
 			@content;
 		}
 	}
+	@else if $break == "slmedium" {
+		@media (min-width: $brkpoint-slm) {
+			@content;
+		}
+	}
 	@else if $break == "medium" {
 		@media (min-width: $brkpoint-md) {
 			@content;

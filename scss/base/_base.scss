@@ -7,8 +7,11 @@ body {
   font-size: $base__font-size;
   font-family: $font-family;
   line-height: ($base__line/$base__font-size);
+  // max-width: 1400px;
   // background-color: palette(color-primary, xx-light);
 }
+
+
 
 a:active {
   color: $black;
