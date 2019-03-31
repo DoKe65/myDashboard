@@ -56,12 +56,14 @@
 
 .traffic__container {
   height: auto;
+  max-height: 30vh;
   position: relative;
   border-bottom: $br--blue;
   padding-bottom: $indent;
   @include mq(medium) {
     height: 25vh;
     min-height: 14rem;
+    max-height: unset;
   }
   @include mq(large) {
     height: 35vh;

@@ -14,6 +14,7 @@
     justify-self: right;
     padding-right: $indent;
     flex-basis: 1;
+    max-width: 100%;
   }
 }
 
@@ -38,30 +39,31 @@
   & img {
     @extend %img;
     display: none;
-    margin: $indent;
-    margin-left: 0;
-    margin-right: 0.5rem;
     #members & {
       @include mq(medium) {
         display: block;
-        margin: $indent-lg;
+        margin-right: $indent;
+        align-self: center;
       }
     }
     #recent & {
       @include mq(large) {
         display: block;
-        margin: $indent-lg;
+        margin-right: $indent;
+        align-self: center;
       }
     }
   }
   & .nameMail {
     flex-grow: 2;
+    align-self: center;
+    margin-top: 0;
   }
   & .name {
     margin-top: $indent;
     margin-bottom: 0;
     @include mq(medium) {
-      margin-top: $indent * 1.5;
+      margin-top: 0;
     }
   }
   & .email,

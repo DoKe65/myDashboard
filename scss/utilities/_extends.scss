@@ -2,8 +2,26 @@
 // Placeholders
 // ==========================================================================
 
-%btn {
+%input {
+  width: 100%;
+  height: $col-height;
   border-radius: $br--default;
+  border: 1px solid $color-primary;
+  background-color: $white;
+  margin: $indent 0;
+  padding: $indent;
+}
+
+%btn {
+  @extend %input;
+  // width: 100%;
+  // height: $col-height;
+  // border-radius: $br--default;
+  // border: 1px solid $color-primary;
+  background-color: $color-primary;
+  color: $white;
+  cursor: pointer;
+  // margin: $indent 0;
 }
 
 %widget {
@@ -21,7 +39,7 @@
   width: auto;
   height: $col-height;
   border-radius: $br--round;
-  %img:hover {
-    transform: scale(2);
+  &:hover {
+    transform: scale(1.5);
   }
 }

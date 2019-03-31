@@ -1,0 +1,69 @@
+// =================
+// Message section
+// =================
+
+.main__messages {
+  @extend %widget;
+  // @include flex($dir: column);
+  // width: 85%;
+  // max-width: 100%;
+  border-top: none;
+  width: 85%;
+  position: relative;
+  @include mq(medium) {
+    justify-self: right;
+    padding-right: $indent;
+  }
+
+  & button {
+    @extend %btn;
+  }
+  & input,
+  & textarea {
+    @extend %input;
+  }
+  & textarea {
+    height: $col-height-xl;
+  }
+}
+
+// Suggestions
+
+.searchSuggestions {
+  position: absolute;
+  border: $br--blue;
+  border-radius: $br--default;
+  // border-top: none;
+  // border-bottom: none;
+  max-width: 100%;
+  margin-right: $indent;
+  z-index: 10;
+  top: 96px;
+  left: 0;
+  right: 0;
+  &--items {
+    // div for each suggestion Item
+    // padding: 10px;
+    margin: 0;
+    border-bottom: $br--blue;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    & input {
+      cursor: pointer;
+      background-color: palette(color-primary, xx-light);
+      border: none;
+      border-radius: 0;
+      margin: 0;
+      &:hover {
+        background-color: palette(color-primary, x-light);
+      }
+    }
+
+  }
+}
+
+.active input {
+  background-color: palette(color-primary, x-light);
+}

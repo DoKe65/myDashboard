@@ -409,13 +409,93 @@ for (let i = 0; i < members.length; i++) {
   time.textContent = members[i].time;
   postDiv.appendChild(time);
   // add arrow
-  // let arrowDiv = document.createElement("div");
-  // arrowDiv.setAttribute("class", "arrow");
   let arrow = document.createElement("button");
   arrow.setAttribute("class", "arrow");
   arrow.textContent = ">";
-  // arrowDiv.appendChild(arrow);
   actDiv.appendChild(arrow);
 }
 
-// document.getElementById("members").innerHTML = members[0].img;
+// ======================
+// Member Messaging
+// ======================
+
+// Search function
+
+// gatter input
+let search = document.querySelector("#main__messages--search");
+search.setAttribute("autocomplete", "off");
+
+let mails = [];
+for (let i = 0; i < members.length; i++) {
+  mails.push(members[i].mail);
+}
+
+function suggestions(input, array) {
+  let current;
+
+  input.addEventListener("input", function(e) {
+    let itemsDiv, suggestionItem, i, val = this.value;
+    closeAll();
+    // if (!val) { return false;}
+    current = -1;
+    itemsDiv = document.createElement("div");
+    itemsDiv.setAttribute("id", this.id + "searchSuggestions--list");
+    itemsDiv.setAttribute("class", "searchSuggestions");
+    this.parentNode.appendChild(itemsDiv);
+    for (i = 0; i < array.length; i++) {
+      let filter = array[i].toUpperCase();
+      if (filter.includes(val.toUpperCase())) {
+        suggestionItem = document.createElement("div");
+        suggestionItem.setAttribute("class", "searchSuggestions--items")
+        suggestionItem.innerHTML += "<input value='" + array[i] + "'>";
+        suggestionItem.addEventListener("click", function(e) {
+          input.value = this.getElementsByTagName("input")[0].value;
+          closeAll();
+        });
+        itemsDiv.appendChild(suggestionItem);
+      }
+    }
+  });
+  input.addEventListener("keydown", function(e) {
+    let x = document.getElementById(this.id + "searchSuggestions--list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
+      current++;
+      addActive(x);
+    } else if (e.keyCode == 38) {
+        current--;
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        e.preventDefault();
+        if (current > -1) {
+          if (x) x[current].click();
+        }
+      }
+  });
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (current >= x.length) current = 0;
+    if (current < 0) current = (x.length - 1);
+    x[current].classList.add("active");
+  }
+  function removeActive(x) {
+    for (let i = 0; i < x.length; i++) {
+      x[i].classList.remove("active");
+    }
+  }
+  function closeAll(element) {
+
+    let x = document.getElementsByClassName("searchSuggestions");
+    for (let i = 0; i < x.length; i++) {
+      if (element != x[i] && element != input) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+      closeAll(e.target);
+  });
+}
+
+suggestions(document.getElementById("main__messages--search"), mails);

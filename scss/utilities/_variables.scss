@@ -69,7 +69,7 @@ $base__line     : 24px;
 $letter-space   : 1px;
 $large__font-size: 32px;
 $xlarge__font-size: 48px;
-$small__font-size: 10px;
+$small__font-size: 12px;
 
 // Border Radius
 
@@ -101,5 +101,6 @@ $brkpoint-lg: 1024px;
 // sizes and positions
 $col-height: 2.4rem;
 $col-height-lg: $col-height * 1.5;
+$col-height-xl: $col-height-lg * 3;
 $indent: 0.7rem;
 $indent-lg: $indent * 2;
