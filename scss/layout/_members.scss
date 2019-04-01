@@ -5,25 +5,20 @@
 #members,
 #recent {
   @extend %widget;
+  @extend %left;
   border-top: none;
+  border-bottom: none;
   padding-top: 0;
   padding-bottom: 0;
   flex-direction: column;
-  width: 85%;
   @include mq(medium) {
-    justify-self: right;
-    padding-right: $indent;
     flex-basis: 1;
     max-width: 100%;
   }
 }
 
 #recent {
-  @include mq(medium) {
-    justify-self: left;
-    padding-left: $indent;
-    border-left: $br--blue;
-  }
+  @extend %right;
 }
 
 .member {

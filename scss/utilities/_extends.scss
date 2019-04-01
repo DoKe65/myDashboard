@@ -14,24 +14,34 @@
 
 %btn {
   @extend %input;
-  // width: 100%;
-  // height: $col-height;
-  // border-radius: $br--default;
-  // border: 1px solid $color-primary;
   background-color: $color-primary;
   color: $white;
   cursor: pointer;
-  // margin: $indent 0;
 }
 
 %widget {
   padding: $indent 0;
   border-top: $br--blue;
   border-bottom: $br--blue;
-  width: 80%;
+  width: 85%;
+  max-width: 85%;
   @include mq(slmedium) {
   @include flex($just: space-between, $wrap: wrap);
     padding: $indent-lg 0;
+  }
+}
+%left {
+  @include mq(medium) {
+  justify-self: right;
+  padding-right: $indent;
+  }
+}
+
+%right {
+  @include mq(medium) {
+    justify-self: left;
+    padding-left: $indent;
+    border-left: $br--blue;
   }
 }
 

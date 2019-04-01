@@ -14,19 +14,32 @@
   cursor: pointer; }
 
 .social__widget, #members,
-#recent, .main__messages {
+#recent, .main__messages, .main__settings {
   padding: 0.7rem 0;
   border-top: 1px solid #4D4C72;
   border-bottom: 1px solid #4D4C72;
-  width: 80%; }
+  width: 85%;
+  max-width: 85%; }
   @media (min-width: 550px) {
     .social__widget, #members,
-    #recent, .main__messages {
+    #recent, .main__messages, .main__settings {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       padding: 1.4rem 0; } }
+
+@media (min-width: 768px) {
+  #members,
+  #recent, .main__messages {
+    justify-self: right;
+    padding-right: 0.7rem; } }
+
+@media (min-width: 768px) {
+  #recent, .main__settings {
+    justify-self: left;
+    padding-left: 0.7rem;
+    border-left: 1px solid #4D4C72; } }
 
 .member img {
   width: auto;
@@ -784,42 +797,40 @@ svg path {
       margin-left: 0;
       padding-bottom: 2.4rem; } }
 
-.social__widget {
-  width: 85%; }
-  @media (min-width: 768px) {
-    .social__widget--title {
-      width: 100%;
-      margin-bottom: 0.7rem; } }
-  .social__widget--sn {
-    background-color: #eeeff7;
-    border: #9799cf 1px solid;
+@media (min-width: 768px) {
+  .social__widget--title {
     width: 100%;
-    margin: 0.7rem auto;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around; }
-    @media (min-width: 550px) {
-      .social__widget--sn {
-        margin: 0.7rem 0;
-        width: 32%; } }
-  .social__widget--text {
-    width: 60%; }
-  .social__widget--subtitle {
-    color: #7477BF;
-    font-weight: 700;
-    margin-bottom: 0; }
-  .social__widget--nr {
-    font-weight: 300;
-    font-size: 32px;
-    margin-top: -0.7rem;
-    margin-bottom: 1.4rem;
-    color: #9799cf; }
-    @media (min-width: 1024px) {
-      .social__widget--nr {
-        font-size: 48px;
-        margin-bottom: 0.7rem; } }
+    margin-bottom: 0.7rem; } }
+.social__widget--sn {
+  background-color: #eeeff7;
+  border: #9799cf 1px solid;
+  width: 100%;
+  margin: 0.7rem auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around; }
+  @media (min-width: 550px) {
+    .social__widget--sn {
+      margin: 0.7rem 0;
+      width: 32%; } }
+.social__widget--text {
+  width: 60%; }
+.social__widget--subtitle {
+  color: #7477BF;
+  font-weight: 700;
+  margin-bottom: 0; }
+.social__widget--nr {
+  font-weight: 300;
+  font-size: 32px;
+  margin-top: -0.7rem;
+  margin-bottom: 1.4rem;
+  color: #9799cf; }
+  @media (min-width: 1024px) {
+    .social__widget--nr {
+      font-size: 48px;
+      margin-bottom: 0.7rem; } }
 
 .social {
   fill: #fff;
@@ -843,23 +854,15 @@ svg path {
 #members,
 #recent {
   border-top: none;
+  border-bottom: none;
   padding-top: 0;
   padding-bottom: 0;
-  flex-direction: column;
-  width: 85%; }
+  flex-direction: column; }
   @media (min-width: 768px) {
     #members,
     #recent {
-      justify-self: right;
-      padding-right: 0.7rem;
       flex-basis: 1;
       max-width: 100%; } }
-
-@media (min-width: 768px) {
-  #recent {
-    justify-self: left;
-    padding-left: 0.7rem;
-    border-left: 1px solid #4D4C72; } }
 
 .member {
   font-weight: 300;
@@ -925,13 +928,11 @@ svg path {
         padding: 0; } }
 
 .main__messages {
-  border-top: none;
-  width: 85%;
+  padding-top: 0;
+  margin-top: 0.7rem;
   position: relative; }
-  @media (min-width: 768px) {
-    .main__messages {
-      justify-self: right;
-      padding-right: 0.7rem; } }
+  .main__messages .dashboard__titlebar--titles {
+    margin-top: 1.4rem; }
   .main__messages textarea {
     height: 10.8rem; }
 
@@ -961,5 +962,67 @@ svg path {
 
 .active input {
   background-color: #cbcce7; }
+
+.main__settings {
+  padding-top: 0;
+  margin-top: 0.7rem; }
+  .main__settings .dashboard__titlebar--titles {
+    margin-top: 1.4rem; }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 7.2rem;
+  height: 34px; }
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eeeff7;
+  transition: .4s;
+  border-radius: 34px;
+  padding-left: 10px;
+  color: #7477BF;
+  text-transform: uppercase;
+  font-size: 0;
+  padding-top: 13px; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%; }
+
+input:checked + .slider {
+  background-color: #7477BF;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding-top: 5px; }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3; }
+
+input:checked + .slider:before {
+  transform: translateX(80px); }
 
 /*# sourceMappingURL=styles.css.map */

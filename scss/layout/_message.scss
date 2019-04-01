@@ -4,17 +4,13 @@
 
 .main__messages {
   @extend %widget;
-  // @include flex($dir: column);
-  // width: 85%;
-  // max-width: 100%;
-  border-top: none;
-  width: 85%;
+  @extend %left;
+  padding-top: 0;
+  margin-top: $indent;
   position: relative;
-  @include mq(medium) {
-    justify-self: right;
-    padding-right: $indent;
+  & .dashboard__titlebar--titles {
+    margin-top: $indent-lg;
   }
-
   & button {
     @extend %btn;
   }
@@ -33,8 +29,6 @@
   position: absolute;
   border: $br--blue;
   border-radius: $br--default;
-  // border-top: none;
-  // border-bottom: none;
   max-width: 100%;
   margin-right: $indent;
   z-index: 10;
@@ -42,8 +36,6 @@
   left: 0;
   right: 0;
   &--items {
-    // div for each suggestion Item
-    // padding: 10px;
     margin: 0;
     border-bottom: $br--blue;
     &:last-child {

@@ -425,27 +425,28 @@ for (let i = 0; i < members.length; i++) {
 let search = document.querySelector("#main__messages--search");
 search.setAttribute("autocomplete", "off");
 
-let mails = [];
+let names = [];
 for (let i = 0; i < members.length; i++) {
-  mails.push(members[i].mail);
+  names.push(members[i].name);
 }
 
 function suggestions(input, array) {
   let current;
 
   input.addEventListener("input", function(e) {
-    let itemsDiv, suggestionItem, i, val = this.value;
+    // let itemsDiv, suggestionItem, i, val = this.value;
+    let val = this.value;
     closeAll();
-    // if (!val) { return false;}
+    if (!val) { return false;}
     current = -1;
-    itemsDiv = document.createElement("div");
+    let itemsDiv = document.createElement("div");
     itemsDiv.setAttribute("id", this.id + "searchSuggestions--list");
     itemsDiv.setAttribute("class", "searchSuggestions");
     this.parentNode.appendChild(itemsDiv);
-    for (i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       let filter = array[i].toUpperCase();
       if (filter.includes(val.toUpperCase())) {
-        suggestionItem = document.createElement("div");
+        let suggestionItem = document.createElement("div");
         suggestionItem.setAttribute("class", "searchSuggestions--items")
         suggestionItem.innerHTML += "<input value='" + array[i] + "'>";
         suggestionItem.addEventListener("click", function(e) {
@@ -498,4 +499,27 @@ function suggestions(input, array) {
   });
 }
 
-suggestions(document.getElementById("main__messages--search"), mails);
+suggestions(document.getElementById("main__messages--search"), names);
+
+//clear input fields when pressing send
+
+const messageDiv = document.querySelector(".main__messages");
+let searchField = document.querySelector("#main__messages--search");
+let message = document.querySelector(".main__messages--message");
+
+function clearInput(element) {
+  element.addEventListener('click', (e) => {
+    let name = searchField.value;
+    if (e.target.tagName === "BUTTON") {
+      searchField.value = "";
+      message.value = "";
+      alert("Message to " + name + "suggessfully sent!");
+      }
+    });
+}
+
+clearInput(messageDiv);
+
+// =================
+// Settings
+// =================
