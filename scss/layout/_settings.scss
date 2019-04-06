@@ -5,75 +5,81 @@
 .main__settings {
   @extend %widget;
   @extend %right;
+  border-top: none;
+  border-bottom: none;
+  flex-direction: column;
+  justify-content: space-between;
   padding-top: 0;
   margin-top: $indent;
+  @include mq(medium) {
+    border-top: $br--blue;
+    border-bottom: $br--blue;
+  }
   & .dashboard__titlebar--titles {
-    margin-top: $indent-lg;
+    margin-top: 0;
+    margin-bottom: 0;
+    @include mq(medium) {
+      margin-top: $indent-lg;
+    }
   }
 }
 
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  // width: 60px;
-  width: $col-height-lg * 2;
-  height: 34px;
+.main__settings--inputs {
+  height: $col-height-lg * 4;
+  @include flex($dir: column, $just: space-around);
+  @include mq(medium) {
+    height: 60%;
+  }
+
 }
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+// Switchboxes
+
+.main__settings--switches {
+  @extend %slider;
+  text-align: center;
+  & .labelCheckbox {
+    display: block;
+  }
+  @include mq(medium) {
+    text-align: left;
+    @include flex($dir: row, $just: flex-start, $algnI: center);
+    & .labelCheckbox {
+    width: 40%;
+    }
+  }
 }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+// Timezone
+
+ #timezone {
   background-color: palette(color-primary, xx-light);
-  transition: .4s;
-  border-radius: 34px;
+  height: $col-height-lg;
+  width: 100%;
+  padding: $indent;
+  border: $br--blue;
+  border-radius: $br--default;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-  padding-left: 10px;
-  color: $color-primary;
-  text-transform: uppercase;
-  font-size: 0;
-  padding-top: 13px;
+  background-image: url("../images/select.png");
+  background-position: calc(100% - 15px) calc(1em + 2px);
+  background-repeat: no-repeat;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
+// Buttons
 
-}
+.main__settings--buttons {
+  margin-top: auto;
 
-input:checked + .slider {
-  background-color: $color-primary;
-  color: $white;
-  text-transform: uppercase;
-  font-weight: $font-weight--bold;
-  letter-spacing: 2px;
-  font-size: $base__font-size;
-  padding-top: 5px;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(80px);
+  @include flex($just: space-between);
+  & button {
+    @extend %btn;
+    width: 48%;
+  }
+  & #resetSettings {
+    background-color: palette(color-primary, xx-light);
+    color: $color-secundary;
+  }
 }
