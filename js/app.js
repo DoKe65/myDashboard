@@ -317,12 +317,11 @@ createDoughnutChart("mobileUsers", labelsMobile, dataMobile);
 // ===========
 
 // New Members Widget
-const src = "../images/";
 const members = [
   {
     name: "Victoria Chambers",
     mail: "victoria.chambers80@example.com",
-    img: "../myDashboard/images/member-1.jpg",
+    img: "images/member-1.jpg",
     date: "03/24/19",
     message: " commented on YourApp's SEO Tips",
     time: "4 hours ago"
@@ -330,7 +329,7 @@ const members = [
   {
     name: "Dale Byrd",
     mail: "dale.byrd52@example.com",
-    img: "../myDashboard/images/member-2.jpg",
+    img: "images/member-2.jpg",
     date: "03/22/19",
     message: " like the post Facebook's Changes for 2019",
     time: "5 hours ago"
@@ -338,7 +337,7 @@ const members = [
   {
     name: "Dawn Wood",
     mail: "dawn.wood16@example.com",
-    img: "../myDashboard/images/member-3.jpg",
+    img: "images/member-3.jpg",
     date: "03/22/19",
     message: " commented on Facebook's Changes for 2019",
     time: "1 day ago"
@@ -346,7 +345,7 @@ const members = [
   {
     name: "Dan Oliver",
     mail: "dan.oliver82@example.com",
-    img: "../myDashboard/images/member-4.jpg",
+    img: "images/member-4.jpg",
     date: "03/19/19",
     message: " posted YourApp's SEO Tips",
     time: "3 days ago"
@@ -434,7 +433,6 @@ function suggestions(input, array) {
   let current;
 
   input.addEventListener("input", function(e) {
-    // let itemsDiv, suggestionItem, i, val = this.value;
     let val = this.value;
     closeAll();
     if (!val) { return false;}
@@ -510,10 +508,18 @@ let message = document.querySelector(".main__messages--message");
 function clearInput(element) {
   element.addEventListener('click', (e) => {
     let name = searchField.value;
+    let currentMessage = message.value;
     if (e.target.tagName === "BUTTON") {
-      searchField.value = "";
-      message.value = "";
-      alert("Message to " + name + "suggessfully sent!");
+      if (name === "") {
+        alert("You have to enter a name.");
+      } else if (currentMessage === "") {
+        alert("You have to enter a message.");
+      } else {
+        searchField.value = "";
+        message.value = "";
+        alert("Message to " + name + " suggessfully sent!");
+      }
+
       }
     });
 }
@@ -523,3 +529,21 @@ clearInput(messageDiv);
 // =================
 // Settings
 // =================
+
+const emailCheck = document.getElementById("emailCheckbox");
+const publicCheck = document.getElementById("publicCheckbox");
+const timezone = document.getElementById("timezone");
+
+function retrieveSelection(selector) {
+  let selected = selector[selector.selectedIndex].value;
+}
+
+retrieveSelection(timezone);
+
+function supportsLocalStorage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+    } catch(e) {
+      return false;
+    }
+  }
