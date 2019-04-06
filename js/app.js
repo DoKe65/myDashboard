@@ -19,6 +19,8 @@ function closeButton(element) {
   });
 }
 
+
+
 //===========================================
 // Notification
 //===========================================
@@ -73,6 +75,7 @@ header.addEventListener('click', (e) => {
   if (e.target.tagName === "svg") {
     let noteButton = notesDiv.getElementsByTagName("BUTTON");
     badge.setAttribute("style", "visibility: hidden;");
+    let box = notesDiv;
     if (notesDiv.style.display === "none") {
       if (noteButton.length > 0) {
         notesDiv.style.display = "block";
@@ -533,12 +536,8 @@ clearInput(messageDiv);
 const emailCheck = document.getElementById("emailCheckbox");
 const publicCheck = document.getElementById("publicCheckbox");
 const timezone = document.getElementById("timezone");
-
-function retrieveSelection(selector) {
-  let selected = selector[selector.selectedIndex].value;
-}
-
-retrieveSelection(timezone);
+const save = document.getElementById("saveSettings");
+const reset = document.getElementById("resetSettings");
 
 function supportsLocalStorage() {
   try {
@@ -547,3 +546,38 @@ function supportsLocalStorage() {
       return false;
     }
   }
+
+function saveSettings() {
+  localStorage.setItem('emailCheck', emailCheck.checked);
+  localStorage.setItem('publicCheck', publicCheck.checked);
+  localStorage.setItem('timezone', timezone[timezone.selectedIndex].value);
+}
+
+function loadSettings() {
+  let checkedEmail = JSON.parse(localStorage.getItem('emailCheck'));
+  emailCheck.checked = checkedEmail;
+  let checkedPublic = JSON.parse(localStorage.getItem('publicCheck'));
+  publicCheck.checked = checkedPublic;
+  let selectedTimezone = localStorage.getItem('timezone');
+  timezone.value = selectedTimezone;
+}
+
+function resetSettings() {
+  location.reload();
+  localStorage.clear();
+  localStorage.setItem('timezone', timezone.value = "Select your timezone");
+}
+
+save.addEventListener('click', (e) => {
+  if(e.target.tagName === "BUTTON") {
+    saveSettings();
+  }
+});
+
+reset.addEventListener('click', (e) => {
+  if(e.target.tagName === "BUTTON") {
+    resetSettings();
+  }
+});
+
+loadSettings();
