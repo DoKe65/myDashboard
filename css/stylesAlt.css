@@ -443,8 +443,7 @@ a:active {
   justify-items: center;
   height: 100vh;
   width: 100vw;
-  grid: subgrid;
-  grid-template-rows: repeat(auto-fill, 1fr, auto);
+  grid-template-rows: repeat(auto-fill, 1fr);
   grid-row-gap: 0.7rem; }
   @media (min-width: 768px) {
     .grid__content {
@@ -895,10 +894,7 @@ svg path {
   width: 60%;
   margin: -2.4rem; }
   .social__circle {
-    fill: #a47a7a;
-    cx: 200;
-    cy: 50;
-    r: 80; }
+    fill: #a47a7a; }
     .facebook .social__circle {
       r: 80; }
   .social__icon {
@@ -919,7 +915,6 @@ svg path {
   @media (min-width: 768px) {
     #members,
     #recent {
-      flex-basis: 1;
       max-width: 100%; } }
 
 .member {

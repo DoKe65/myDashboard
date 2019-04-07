@@ -12,7 +12,6 @@
   padding-bottom: 0;
   flex-direction: column;
   @include mq(medium) {
-    flex-basis: 1;
     max-width: 100%;
   }
 }

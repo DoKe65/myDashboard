@@ -54,9 +54,6 @@
 
   &__circle {
     fill: $color-primary;
-    cx: 200;
-    cy: 50;
-    r: 80;
     .facebook & {
       r: 80;
     }

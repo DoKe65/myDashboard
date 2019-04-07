@@ -16,8 +16,7 @@
 .grid__content {
   @include grid();
     width: 100vw;
-    grid: subgrid;
-    grid-template-rows: repeat(auto-fill, 1fr, auto);
+    grid-template-rows: repeat(auto-fill, 1fr);
     grid-row-gap: $indent;
   @include mq(medium) {
     grid-row-gap: $indent-lg;
