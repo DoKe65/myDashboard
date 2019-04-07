@@ -895,8 +895,6 @@ svg path {
   margin: -2.4rem; }
   .social__circle {
     fill: #a47a7a; }
-    .facebook .social__circle {
-      r: 80; }
   .social__icon {
     transform: scale(3);
     transform-origin: -235% -15%;
