@@ -158,6 +158,12 @@ let labelsDailyTraffic = [
 let labelsMobile = ["Phones", "Tablets", "Desktop"];
 let dataMobile = [15, 15, 70];
 
+let bkgColorLine = 'rgba(116, 119, 191, 0.2)';
+let chartBaseColor = '#7477BF';
+let pointHoverBorderColor = '#436678';
+let chartPhoneColor = '#8dd490';
+let chartTabletColor = '#2eb5b5';
+
 // Line charts
 let lineChart = null;
 
@@ -171,12 +177,12 @@ function createLineChart(destination, type, labels, data) {
           labels: labels,
           datasets: [{
               data: data,
-              backgroundColor: 'rgba(116, 119, 191, 0.2)',
-              borderColor: '#7477BF',
+              backgroundColor: bkgColorLine,
+              borderColor: chartBaseColor,
               borderWidth: 1,
               lineTension: 0,
               pointRadius: 6,
-              pointHoverBorderColor: '#436678',
+              pointHoverBorderColor: pointHoverBorderColor,
               pointBackgroundColor: '#fff'
           }]
       },
@@ -240,8 +246,8 @@ function createBarsChart(destination, labels, data) {
       labels: labels,
       datasets: [{
           data: data,
-          backgroundColor: '#7477BF',
-          borderColor: '#7477BF',
+          backgroundColor: chartBaseColor,
+          borderColor: chartBaseColor,
           borderWidth: 1
       }]
       },
@@ -285,7 +291,7 @@ function createDoughnutChart(destination, labels, data) {
       labels: labels,
       datasets: [{
           data: data,
-          backgroundColor: ['#8dd490', "#2eb5b5", "#7477BF"],
+          backgroundColor: [chartPhoneColor, chartTabletColor, chartBaseColor],
           borderWidth: 0
       }]
       },
@@ -535,9 +541,25 @@ clearInput(messageDiv);
 
 const emailCheck = document.getElementById("emailCheckbox");
 const publicCheck = document.getElementById("publicCheckbox");
+const changeTheme = document.getElementById("themeCheckbox");
 const timezone = document.getElementById("timezone");
 const save = document.getElementById("saveSettings");
 const reset = document.getElementById("resetSettings");
+
+// if (changeTheme.checked === true) {
+//   chartBaseColor = "red";
+let cssPath = document.getElementById("stylesheet");
+
+changeTheme.addEventListener('click', (e) => {
+  if (e.target.tagName = "CHECKBOX") {
+    if (changeTheme.checked === true) {
+      cssPath.setAttribute("href", "css/stylesAlt.css");
+    } else {
+      cssPath.setAttribute("href", "css/styles.css");
+    }
+  }
+});
+
 
 function supportsLocalStorage() {
   try {
@@ -550,6 +572,7 @@ function supportsLocalStorage() {
 function saveSettings() {
   localStorage.setItem('emailCheck', emailCheck.checked);
   localStorage.setItem('publicCheck', publicCheck.checked);
+  localStorage.setItem('changeTheme', changeTheme.checked);
   localStorage.setItem('timezone', timezone[timezone.selectedIndex].value);
 }
 
@@ -558,6 +581,13 @@ function loadSettings() {
   emailCheck.checked = checkedEmail;
   let checkedPublic = JSON.parse(localStorage.getItem('publicCheck'));
   publicCheck.checked = checkedPublic;
+  let checkedTheme = JSON.parse(localStorage.getItem('changeTheme'));
+  changeTheme.checked = checkedTheme;
+  if (changeTheme.checked === true) {
+    cssPath.setAttribute("href", "css/stylesAlt.css");
+  } else if (changeTheme.checked != true){
+    cssPath.setAttribute("href", "css/styles.css");
+  }
   let selectedTimezone = localStorage.getItem('timezone');
   timezone.value = selectedTimezone;
 }

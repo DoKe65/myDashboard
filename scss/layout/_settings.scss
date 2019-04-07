@@ -28,7 +28,7 @@
   height: $col-height-lg * 4;
   @include flex($dir: column, $just: space-around);
   @include mq(medium) {
-    height: 60%;
+    height: 70%;
   }
 
 }
@@ -37,15 +37,17 @@
 
 .main__settings--switches {
   @extend %slider;
-  text-align: center;
-  & .labelCheckbox {
-    display: block;
-  }
+  @include flex($dir: row, $just: space-between, $algnI: center);
   @include mq(medium) {
     text-align: left;
-    @include flex($dir: row, $just: flex-start, $algnI: center);
+    justify-content: flex-start;
     & .labelCheckbox {
-    width: 40%;
+    width: 60%;
+    }
+  }
+  @include mq(large) {
+    & .labelCheckbox {
+      width: 50%;
     }
   }
 }
@@ -62,8 +64,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
-  background-image: url("../images/select.png");
+  background-image: $arrow;
   background-position: calc(100% - 15px) calc(1em + 2px);
   background-repeat: no-repeat;
 }

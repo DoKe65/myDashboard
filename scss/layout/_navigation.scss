@@ -3,7 +3,6 @@
 #navigationbar {
   width: 100%;
   @include mq(large) {
-    // height: 100vh;
     background-color: $color-secundary;
     grid-row: 2 / -1;
     margin-left: 0;
@@ -15,7 +14,6 @@
   @include flex($just: space-around);
   color: $white;
   background-color: $color-secundary;
-  // padding: $indent;
 
   @include mq(large) {
     flex-direction: column;
@@ -56,4 +54,8 @@
   height: 2.5rem;
   margin: auto;
   opacity: 0.5;
+}
+
+.notes li {
+  color: $black;
 }

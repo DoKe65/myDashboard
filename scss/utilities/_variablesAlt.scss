@@ -4,8 +4,8 @@
 
 // Font Stacks
 
-$font-url--google : "https://fonts.googleapis.com/css?family=Krub:300,400,700";
-$font-family      : "Krub", Arial, sans-serif;
+$font-url--google : "https://fonts.googleapis.com/css?family=Kalam:300,400,700";
+$font-family      : "Kalam", Arial, sans-serif;
 
 // Font Weights
 
@@ -16,11 +16,11 @@ $font-weight--bold    : 700;
 // Base Colors
 
 $white        : #fff;
-$black        : #242121;
-$grey         : #757a80;
-$ship-cove    : #7477BF;
-$mulled-wine  : #4D4C72;
-$feijoa       : #8dd490;
+$black        : #AA3939;
+$grey         : #FAA;
+$ship-cove    : #a47a7a;
+$mulled-wine  : #7c5454;
+$feijoa       : #dbcb3b;
 
 // Color Usage
 
@@ -92,7 +92,7 @@ $trns-duration: .5s;
 $path--rel-img: "../images";
 $path--rel-svg: "../sprite";
 
-$arrow: url("../images/select.png");
+$arrow: url("../images/selectAlt.png");
 
 // breakpoints
 $brkpoint-sm: 1px;

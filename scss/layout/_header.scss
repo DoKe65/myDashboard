@@ -104,13 +104,11 @@ svg path {
   z-index: 1;
   visibility: visible;
   @include mq(medium) {
-    // top: $indent-lg;
     left: auto;
   }
 }
 
 .notes {
-  // display: none;
   position: absolute;
   top: $col-height-lg;
   right: $col-height-lg * 3;
@@ -121,10 +119,6 @@ svg path {
   padding: $indent;
   color: $grey;
   max-width: 16rem;
-
-  // &.hidden {
-  //   visibility: hidden;
-  // }
 
   & li {
     border-top: $br--green-fine;

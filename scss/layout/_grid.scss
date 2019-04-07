@@ -3,20 +3,14 @@
 // =================
 
 .grid__main {
-  // max-width: 1300px;
   margin: auto;
   background-color: $white;
   @include grid();
-
   @include mq(large) {
-    // width: device-width;
     grid-template-rows: auto 100rem;
     grid-template-columns: auto minmax(0, 1fr);
     height: 100%;
-    // height: fit-content;
-    
   }
-
 }
 
 .grid__content {
@@ -25,9 +19,7 @@
     grid: subgrid;
     grid-template-rows: repeat(auto-fill, 1fr, auto);
     grid-row-gap: $indent;
-    // z-index: 2;
   @include mq(medium) {
-    // grid-auto-rows: max-content;
     grid-row-gap: $indent-lg;
   }
 
@@ -36,8 +28,6 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     grid-row-gap: $indent-lg;
-    // grid-auto-rows: max-height;
     background-color: $white;
-    // grid-template-columns: auto minmax(0, 1fr);
   }
 }

@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Krub:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Kalam:300,400,700");
 .main__messages button, .main__settings--buttons button, .main__messages input, .main__messages textarea {
   width: 100%;
   height: 2.4rem;
   border-radius: 5px;
-  border: 1px solid #7477BF;
+  border: 1px solid #a47a7a;
   background-color: #fff;
   margin: 0.7rem 0;
   padding: 0.7rem; }
 
 .main__messages button, .main__settings--buttons button {
-  background-color: #7477BF;
+  background-color: #a47a7a;
   color: #fff;
   cursor: pointer;
   text-transform: uppercase; }
@@ -17,8 +17,8 @@
 .social__widget, #members,
 #recent, .main__messages, .main__settings {
   padding: 0.7rem 0;
-  border-top: 1px solid #4D4C72;
-  border-bottom: 1px solid #4D4C72;
+  border-top: 1px solid #7c5454;
+  border-bottom: 1px solid #7c5454;
   width: 85%;
   max-width: 85%; }
   @media (min-width: 550px) {
@@ -40,7 +40,7 @@
   #recent, .main__settings {
     justify-self: left;
     padding-left: 0.7rem;
-    border-left: 1px solid #4D4C72; } }
+    border-left: 1px solid #7c5454; } }
 
 .member img {
   width: auto;
@@ -69,11 +69,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #eeeff7;
+    background-color: #ede4e4;
     transition: .4s;
     border-radius: 34px;
     padding-left: 10px;
-    color: #7477BF;
+    color: #a47a7a;
     text-transform: uppercase;
     font-size: 0;
     padding-top: 13px; }
@@ -88,7 +88,7 @@
     transition: .4s;
     border-radius: 50%; }
   .main__settings--switches input:checked + .slider {
-    background-color: #7477BF;
+    background-color: #a47a7a;
     color: #fff;
     text-transform: uppercase;
     font-weight: 700;
@@ -414,13 +414,13 @@ ul {
   box-sizing: border-box; }
 
 body {
-  color: #3f3939;
+  color: #c55151;
   font-size: 16px;
-  font-family: "Krub", Arial, sans-serif;
+  font-family: "Kalam", Arial, sans-serif;
   line-height: 1.5; }
 
 a:active {
-  color: #242121; }
+  color: #AA3939; }
 
 .grid__main {
   margin: auto;
@@ -462,7 +462,7 @@ header {
   flex-direction: column;
   flex-wrap: nowrap;
   color: #fff;
-  background-color: #7477BF;
+  background-color: #a47a7a;
   padding-bottom: 0.7rem;
   width: 100%; }
   @media (min-width: 768px) {
@@ -516,7 +516,7 @@ h1 {
   width: 33%;
   height: 3.6rem;
   padding-right: 1.4rem;
-  border-right: 1px solid #4D4C72;
+  border-right: 1px solid #7c5454;
   position: relative; }
 
 @keyframes turn {
@@ -530,7 +530,7 @@ h1 {
   padding: .2rem 0;
   fill: #fff; }
   #icon-bell:hover {
-    fill: #8dd490;
+    fill: #dbcb3b;
     animation: turn 0.3s infinite; }
 
 svg path {
@@ -546,7 +546,7 @@ svg path {
   top: 0.7rem;
   left: 1.05rem;
   border-radius: 50%;
-  background: #8dd490;
+  background: #dbcb3b;
   color: white;
   z-index: 1;
   visibility: visible; }
@@ -559,24 +559,24 @@ svg path {
   top: 3.6rem;
   right: 10.8rem;
   font-size: 0.7rem;
-  background-color: #eeeff7;
-  border: 4px solid #8dd490;
+  background-color: #ede4e4;
+  border: 4px solid #dbcb3b;
   border-radius: 5px;
   padding: 0.7rem;
-  color: #757a80;
+  color: #FAA;
   max-width: 16rem; }
   .notes li {
-    border-top: 1px solid #8dd490;
+    border-top: 1px solid #dbcb3b;
     padding: 0.7rem; }
     .notes li:last-child {
-      border-bottom: 1px solid #8dd490; }
+      border-bottom: 1px solid #dbcb3b; }
     .notes li .close {
       position: absolute;
       right: 3px;
       margin: auto;
       background-color: transparent;
       border-color: transparent;
-      color: #8dd490; }
+      color: #dbcb3b; }
 
 .header__user {
   display: flex;
@@ -616,7 +616,7 @@ svg path {
 
 .panel {
   text-align: center;
-  background-color: #eeeff7;
+  background-color: #ede4e4;
   width: 100%; }
   @media (min-width: 768px) {
     .panel {
@@ -634,7 +634,7 @@ svg path {
     .panel__title {
       padding: 0 2.4rem;
       background-color: white;
-      border-right: 1px solid #4D4C72; }
+      border-right: 1px solid #7c5454; }
       .panel__title h2 {
         margin: auto;
         margin-top: 0.7rem; } }
@@ -661,11 +661,11 @@ svg path {
         max-width: 40%; } }
   @media (min-width: 768px) {
     .panel__search {
-      border-bottom: 1px solid #4D4C72; } }
+      border-bottom: 1px solid #7c5454; } }
 
 .main__alert {
   width: 80%;
-  background-color: #7477BF;
+  background-color: #a47a7a;
   border-radius: 5px;
   padding: 0.35rem;
   margin: auto;
@@ -694,7 +694,7 @@ svg path {
   width: 100%; }
   @media (min-width: 1024px) {
     #navigationbar {
-      background-color: #4D4C72;
+      background-color: #7c5454;
       grid-row: 2 / -1;
       margin-left: 0;
       height: 2000px; } }
@@ -705,7 +705,7 @@ svg path {
   flex-wrap: nowrap;
   justify-content: space-around;
   color: #fff;
-  background-color: #4D4C72; }
+  background-color: #7c5454; }
   @media (min-width: 1024px) {
     #navigationbar ul {
       flex-direction: column;
@@ -728,12 +728,12 @@ svg path {
   #navigationbar li .nav__icon:hover {
     opacity: 1; }
   #navigationbar li.active {
-    border-bottom: 4px solid #8dd490; }
+    border-bottom: 4px solid #dbcb3b; }
     #navigationbar li.active .nav__icon {
       opacity: 1; }
     @media (min-width: 1024px) {
       #navigationbar li.active {
-        border-left: 4px solid #8dd490;
+        border-left: 4px solid #dbcb3b;
         border-bottom-color: transparent; } }
 
 .nav__icon {
@@ -743,7 +743,7 @@ svg path {
   opacity: 0.5; }
 
 .notes li {
-  color: #242121; }
+  color: #AA3939; }
 
 .main__chart--traffic {
   width: 90vw; }
@@ -772,7 +772,7 @@ svg path {
     justify-content: space-around;
     padding: 0.7rem;
     background-color: #fff;
-    color: #3f3939; }
+    color: #c55151; }
     .traffic__titlebar--nav ul li {
       display: flex;
       flex-direction: row;
@@ -784,7 +784,7 @@ svg path {
       .traffic__titlebar--nav ul li a {
         text-decoration: none; }
       .traffic__titlebar--nav ul li.active {
-        background-color: #8dd490; }
+        background-color: #dbcb3b; }
         .traffic__titlebar--nav ul li.active a {
           color: #fff; }
       @media (min-width: 768px) {
@@ -795,7 +795,7 @@ svg path {
   height: auto;
   max-height: 30vh;
   position: relative;
-  border-bottom: 1px solid #4D4C72;
+  border-bottom: 1px solid #7c5454;
   padding-bottom: 0.7rem; }
   @media (min-width: 768px) {
     .traffic__container {
@@ -813,7 +813,7 @@ svg path {
   height: 30vh;
   position: relative;
   padding-bottom: 1.4rem;
-  border-bottom: 1px solid #4D4C72; }
+  border-bottom: 1px solid #7c5454; }
   @media (min-width: 768px) {
     .main__chart--daily {
       height: 28vh;
@@ -839,7 +839,7 @@ svg path {
     margin-left: 1rem; }
   @media (min-width: 768px) {
     .main__chart--mobile {
-      border-left: 1px solid #4D4C72;
+      border-left: 1px solid #7c5454;
       width: 90%;
       justify-self: left;
       min-height: 18rem;
@@ -860,8 +860,8 @@ svg path {
     width: 100%;
     margin-bottom: 0.7rem; } }
 .social__widget--sn {
-  background-color: #eeeff7;
-  border: #9799cf 1px solid;
+  background-color: #ede4e4;
+  border: #b99898 1px solid;
   width: 100%;
   margin: 0.7rem auto;
   border-radius: 5px;
@@ -876,7 +876,7 @@ svg path {
 .social__widget--text {
   width: 60%; }
 .social__widget--subtitle {
-  color: #7477BF;
+  color: #a47a7a;
   font-weight: 700;
   margin-bottom: 0; }
 .social__widget--nr {
@@ -884,7 +884,7 @@ svg path {
   font-size: 32px;
   margin-top: -0.7rem;
   margin-bottom: 1.4rem;
-  color: #9799cf; }
+  color: #b99898; }
   @media (min-width: 1024px) {
     .social__widget--nr {
       font-size: 48px;
@@ -895,7 +895,7 @@ svg path {
   width: 60%;
   margin: -2.4rem; }
   .social__circle {
-    fill: #7477BF;
+    fill: #a47a7a;
     cx: 200;
     cy: 50;
     r: 80; }
@@ -927,7 +927,7 @@ svg path {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  border-bottom: 1px solid #4D4C72; }
+  border-bottom: 1px solid #7c5454; }
   @media (min-width: 768px) {
     .member {
       min-height: 5.5rem; } }
@@ -956,16 +956,16 @@ svg path {
       .member .name {
         margin-top: 0; } }
   .member .email, .member .time {
-    color: #9799cf;
+    color: #b99898;
     margin: 0;
     font-size: 12px; }
     @media (min-width: 1024px) {
       .member .email, .member .time {
         font-size: 16px; } }
   .member .time {
-    color: #95999e; }
+    color: #ffe7e7; }
   .member .date {
-    color: #95999e;
+    color: #ffe7e7;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -981,7 +981,7 @@ svg path {
         display: block;
         border: none;
         background-color: #fff;
-        color: #8dd490;
+        color: #dbcb3b;
         font-size: 1.4rem;
         padding: 0; } }
 
@@ -996,7 +996,7 @@ svg path {
 
 .searchSuggestions {
   position: absolute;
-  border: 1px solid #4D4C72;
+  border: 1px solid #7c5454;
   border-radius: 5px;
   max-width: 100%;
   margin-right: 0.7rem;
@@ -1006,20 +1006,20 @@ svg path {
   right: 0; }
   .searchSuggestions--items {
     margin: 0;
-    border-bottom: 1px solid #4D4C72; }
+    border-bottom: 1px solid #7c5454; }
     .searchSuggestions--items:last-child {
       border-bottom: none; }
     .searchSuggestions--items input {
       cursor: pointer;
-      background-color: #eeeff7;
+      background-color: #ede4e4;
       border: none;
       border-radius: 0;
       margin: 0; }
       .searchSuggestions--items input:hover {
-        background-color: #cbcce7; }
+        background-color: #d8c6c6; }
 
 .active input {
-  background-color: #cbcce7; }
+  background-color: #d8c6c6; }
 
 .main__settings {
   border-top: none;
@@ -1030,8 +1030,8 @@ svg path {
   margin-top: 0.7rem; }
   @media (min-width: 768px) {
     .main__settings {
-      border-top: 1px solid #4D4C72;
-      border-bottom: 1px solid #4D4C72; } }
+      border-top: 1px solid #7c5454;
+      border-bottom: 1px solid #7c5454; } }
   .main__settings .dashboard__titlebar--titles {
     margin-top: 0;
     margin-bottom: 0; }
@@ -1066,16 +1066,16 @@ svg path {
       width: 50%; } }
 
 #timezone {
-  background-color: #eeeff7;
+  background-color: #ede4e4;
   height: 3.6rem;
   width: 100%;
   padding: 0.7rem;
-  border: 1px solid #4D4C72;
+  border: 1px solid #7c5454;
   border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url("../images/select.png");
+  background-image: url("../images/selectAlt.png");
   background-position: calc(100% - 15px) calc(1em + 2px);
   background-repeat: no-repeat; }
 
@@ -1088,7 +1088,7 @@ svg path {
   .main__settings--buttons button {
     width: 48%; }
   .main__settings--buttons #resetSettings {
-    background-color: #eeeff7;
-    color: #4D4C72; }
+    background-color: #ede4e4;
+    color: #7c5454; }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=stylesAlt.css.map */

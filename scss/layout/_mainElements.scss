@@ -85,6 +85,10 @@
   padding: $indent / 2;
   margin: auto;
   color: $white;
+  font-weight: $font-weight--bold;
+  & span {
+    font-weight: $font-weight--light;
+  }
   @include flex($dir: row, $just: space-between);
 
   @include mq(medium) {
@@ -95,7 +99,6 @@
   @include mq(large) {
     max-width: 100%;
     width: 93%;
-    // margin: 0 $col-height;
   }
 
   & .close {
