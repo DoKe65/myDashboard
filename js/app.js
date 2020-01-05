@@ -5,14 +5,16 @@
 function closeButton(element) {
   element.addEventListener('click', (e) => {
     if (e.target.tagName === "BUTTON") {
+      allNotesLi--;
       const parent = e.target.parentNode;
       const gdParent = parent.parentNode;
       gdParent.removeChild(parent);
-      if (e.target.id === "closeAll") {
+      if (e.target.id === "closeAll" || allNotesLi === 0) {
       gdParent.parentNode.removeChild(gdParent);
       }
     }
     let noteButton = notesDiv.getElementsByTagName("BUTTON");
+
     if (noteButton.length === 0) {
       notesDiv.style.display = "none";
     }
@@ -41,10 +43,14 @@ header.appendChild(notesDiv);
 const notesUl = document.createElement("ul");
 notesDiv.appendChild(notesUl);
 
+let allNotesLi = 0;
+
 function noteList() {
   for (let i = 0; i < notifications.length; i++) {
+    allNotesLi++;
     let noteLi = document.createElement("li");
     let note = notifications[i];
+    noteLi.setAttribute("class", "singleNote");
     noteLi.textContent = note;
     notesUl.appendChild(noteLi);
     let close = document.createElement("button");
@@ -513,23 +519,38 @@ const messageDiv = document.querySelector(".main__messages");
 let searchField = document.querySelector("#main__messages--search");
 let message = document.querySelector(".main__messages--message");
 
+function displayModal(text) {
+  let modal = document.createElement("div");
+  let button = document.createElement("div");
+  button.innerHTML = "OK"
+  button.classList.add("modBtn");
+  modal.classList.add("modal");
+  modal.style.display = "flex";
+  modal.innerHTML = text;
+  modal.appendChild(button);
+  messageDiv.appendChild(modal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal || e.target.classList.contains("modBtn")) {
+      messageDiv.removeChild(modal);
+    }
+  });
+}
 function clearInput(element) {
   element.addEventListener('click', (e) => {
     let name = searchField.value;
     let currentMessage = message.value;
     if (e.target.tagName === "BUTTON") {
       if (name === "") {
-        alert("You have to enter a name.");
+        displayModal("You have to enter a name.");
       } else if (currentMessage === "") {
-        alert("You have to enter a message.");
+        displayModal("You have to enter a message.")
       } else {
         searchField.value = "";
         message.value = "";
-        alert("Message to " + name + " suggessfully sent!");
+        displayModal(`Message to ${name} suggessfully sent!`);
       }
-
-      }
-    });
+    }
+  });
 }
 
 clearInput(messageDiv);
@@ -545,8 +566,6 @@ const timezone = document.getElementById("timezone");
 const save = document.getElementById("saveSettings");
 const reset = document.getElementById("resetSettings");
 
-// if (changeTheme.checked === true) {
-//   chartBaseColor = "red";
 let cssPath = document.getElementById("stylesheet");
 
 changeTheme.addEventListener('click', (e) => {

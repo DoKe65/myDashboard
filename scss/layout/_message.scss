@@ -59,3 +59,34 @@
 .active input {
   background-color: palette(color-primary, x-light);
 }
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 35%;
+  top: 40%;
+  width: 30%;
+  height: 20%;
+  overflow: auto;
+  color: $white;
+  text-align: center;
+  font-size: $indent-lg;
+  background-color: $color-primary;
+  border-radius: $br--default;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & .modBtn {
+    @extend %btn;
+    width: 25%;
+    margin: $indent;
+    font-size: $indent * 1.2;
+    background-color: $color-secundary;
+    border: none;
+    padding: auto;
+    color: $white;
+    letter-spacing: 0.1em;
+  }
+}
